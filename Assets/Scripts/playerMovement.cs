@@ -69,6 +69,7 @@ public class playerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             coins += 1;
+            return;
         }
     }
 
