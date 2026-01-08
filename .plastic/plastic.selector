@@ -1,4 +1,0 @@
-repository "Yet another 3D platformer/Yet another 3D platformer@5772654627892@cloud"
-  path "/"
-    br "/main"
-    co "/main"
