@@ -14,6 +14,8 @@ public class playerMovement : MonoBehaviour
     public float jumpPower = 2f;
     public float gravity = -9.81f;
 
+    private int coins = 0;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -60,4 +62,14 @@ public class playerMovement : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            coins += 1;
+        }
+    }
+
 }
