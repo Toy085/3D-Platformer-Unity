@@ -1906,6 +1906,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1513418453}
     - target: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 199200886765893187}
+    - target: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
       propertyPath: freeLookCamera
       value: 
       objectReference: {fileID: 2115973841}
@@ -1961,6 +1965,11 @@ PrefabInstance:
 --- !u!4 &199200886765893186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3378350617038904610, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+  m_PrefabInstance: {fileID: 199200886765893185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &199200886765893187 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1220655231796809943, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
   m_PrefabInstance: {fileID: 199200886765893185}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5982623790504479634

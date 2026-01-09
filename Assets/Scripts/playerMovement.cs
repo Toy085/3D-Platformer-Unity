@@ -14,6 +14,7 @@ public class playerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpPower = 2f;
     public float gravity = -9.81f;
+    public Animator animator;
 
     private int coins = 0;
     public HUDUI hudUI;
@@ -70,10 +71,19 @@ public class playerMovement : MonoBehaviour
         {
             playerVelocity.y += Mathf.Sqrt(jumpPower * -2f * gravity);
             jumpPressed = false;
+            animator.SetBool("IsJumping", true);
         }
 
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        float speedPercent = move.magnitude / 1f;
+        animator.SetFloat("Speed", speedPercent);
+
+        if (groundedPlayer)
+        {
+            animator.SetBool("IsJumping", false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
