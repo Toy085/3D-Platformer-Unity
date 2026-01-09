@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour
     public float gravity = -9.81f;
 
     private int coins = 0;
-
+    public HUDUI hudUI;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -68,8 +68,8 @@ public class playerMovement : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
-            coins += 1;
-            return;
+            coins++;
+            hudUI.setCoinUI(coins);
         }
     }
 
