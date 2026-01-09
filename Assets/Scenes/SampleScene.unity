@@ -1347,8 +1347,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789434895}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13505943, y: -0.000000037458676, z: 0.0000000051059312, w: 0.9908375}
-  m_LocalPosition: {x: 0, y: 3.85, z: -4.5}
+  m_LocalRotation: {x: 0.12218327, y: 2.8299862e-15, z: -3.4838725e-16, w: 0.9925076}
+  m_LocalPosition: {x: 0, y: 4.1, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1784,7 +1784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineOrbitalFollow
-  TargetOffset: {x: 0, y: -1, z: -0.5}
+  TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 1, y: 1, z: 1}
@@ -1795,14 +1795,14 @@ MonoBehaviour:
   Radius: 5
   Orbits:
     Top:
-      Radius: 2
-      Height: 5
-    Center:
       Radius: 4
-      Height: 2.25
+      Height: 4
+    Center:
+      Radius: 6
+      Height: 1.5
     Bottom:
-      Radius: 2.5
-      Height: 0.1
+      Radius: 3
+      Height: -1.5
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
@@ -1886,8 +1886,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115973836}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13505942, y: -0.000000037662716, z: 0.000000006602832, w: 0.9908376}
-  m_LocalPosition: {x: 0, y: 3.85, z: -4.5}
+  m_LocalRotation: {x: 0.12218326, y: 2.8117265e-15, z: -2.0006226e-16, w: 0.9925076}
+  m_LocalPosition: {x: 0, y: 4.1, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1905,10 +1905,10 @@ PrefabInstance:
       propertyPath: hudUI
       value: 
       objectReference: {fileID: 1513418453}
-    - target: {fileID: 3378350617038904610, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6
-      objectReference: {fileID: 0}
+    - target: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+      propertyPath: freeLookCamera
+      value: 
+      objectReference: {fileID: 2115973841}
     - target: {fileID: 3632578521422994730, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
       propertyPath: m_Name
       value: Player

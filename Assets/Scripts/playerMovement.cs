@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +17,8 @@ public class playerMovement : MonoBehaviour
 
     private int coins = 0;
     public HUDUI hudUI;
+
+    public CinemachineCamera freeLookCamera;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -39,17 +42,28 @@ public class playerMovement : MonoBehaviour
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
-            // Small downward force to keep the player "snapped" to the floor
             playerVelocity.y = -2f;
         }
 
-        float currentSpeed = speed;
-        if (!groundedPlayer)
+        // Get camera relative directions
+        Vector3 camForward = freeLookCamera.transform.forward;
+        camForward.y = 0;
+        camForward.Normalize();
+
+        Vector3 camRight = freeLookCamera.transform.right;
+        camRight.y = 0;
+        camRight.Normalize();
+
+        // Movement relative to camera
+        Vector3 move = camForward * moveInput.y + camRight * moveInput.x;
+        controller.Move(move * Time.deltaTime * speed);
+
+        // Rotate player to face movement direction
+        if (move.magnitude > 0.1f)
         {
-            currentSpeed /= 2;
+            Quaternion targetRotation = Quaternion.LookRotation(move);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
         }
-        Vector3 move = transform.forward * moveInput.y + transform.right * moveInput.x;
-        controller.Move(move * Time.deltaTime * currentSpeed);
 
         // Jump logic
         if (jumpPressed && groundedPlayer)
@@ -58,7 +72,6 @@ public class playerMovement : MonoBehaviour
             jumpPressed = false;
         }
 
-        // Apply gravity then move player
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
