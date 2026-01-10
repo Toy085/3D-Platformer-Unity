@@ -4995,6 +4995,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::coin
   pickupFX: {fileID: 603489194406155469}
+  pickupSound: {fileID: 8300000, guid: c764bed07915c8048aa27899c2965770, type: 3}
+  magnetRadius: 3
+  magnetSpeed: 10
 --- !u!1001 &7409552260825187687
 PrefabInstance:
   m_ObjectHideFlags: 0

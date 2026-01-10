@@ -3,6 +3,7 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     public ParticleSystem pickupFX;
+    public AudioClip pickupSound;
 
     public float magnetRadius = 3f;
     public float magnetSpeed = 10f;
@@ -38,5 +39,10 @@ public class coin : MonoBehaviour
     public void Collect()
     {
         Instantiate(pickupFX, transform.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(
+            pickupSound,
+            transform.position,
+            Random.Range(0.8f, 1f)
+        );
     }
 }
