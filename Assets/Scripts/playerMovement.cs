@@ -106,6 +106,8 @@ public class playerMovement : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
+            coin coin = other.GetComponent<coin>();
+            coin.Collect();
             Destroy(other.gameObject);
             coins++;
             hudUI.setCoinUI(coins);
