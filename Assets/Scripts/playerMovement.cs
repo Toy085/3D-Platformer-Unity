@@ -91,6 +91,11 @@ public class playerMovement : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
 
+        if (jumpPressed && !groundedPlayer)
+        {
+            jumpPressed = false;
+        }
+
         if (this.transform.position.y <= deathY)
         {
             StartCoroutine(Respawn());
@@ -104,13 +109,12 @@ public class playerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coins++;
             hudUI.setCoinUI(coins);
+        } else if (other.CompareTag("Checkpoint"))
+        {
+            lastCheckpointPos = transform.position;
         }
     }
 
-    public void SetCheckpoint(Vector3 pos)
-    {
-        lastCheckpointPos = pos;
-    }
     IEnumerator Respawn()
     {
         yield return StartCoroutine(Fade(1));

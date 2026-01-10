@@ -256,8 +256,11 @@ MonoBehaviour:
   speed: 7
   jumpPower: 5
   gravity: -9.81
+  deathY: -2
   animator: {fileID: 1220655231796809943}
   hudUI: {fileID: 0}
+  fadeGroup: {fileID: 0}
+  fadeDuration: 1
   freeLookCamera: {fileID: 0}
 --- !u!114 &9010772675344078363
 MonoBehaviour:
