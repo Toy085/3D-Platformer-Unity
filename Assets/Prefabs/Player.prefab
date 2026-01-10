@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::playerMovement
   speed: 7
   jumpPower: 5
+  coyoteTime: 0.2
   gravity: -9.81
   deathY: -2
   animator: {fileID: 1220655231796809943}

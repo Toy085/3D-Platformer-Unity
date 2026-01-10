@@ -12,9 +12,11 @@ public class playerMovement : MonoBehaviour
     private Vector3 lastCheckpointPos;
     private bool groundedPlayer;
     private bool jumpPressed;
+    private float coyoteTimeCounter;
 
     public float speed = 5f;
     public float jumpPower = 2f;
+    public float coyoteTime = 0.2f;
     public float gravity = -9.81f;
     public float deathY = -5f;
     public Animator animator;
@@ -51,6 +53,14 @@ public class playerMovement : MonoBehaviour
         {
             playerVelocity.y = -2f;
         }
+        if (groundedPlayer)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
         // Get camera relative directions
         Vector3 camForward = freeLookCamera.transform.forward;
@@ -73,10 +83,11 @@ public class playerMovement : MonoBehaviour
         }
 
         // Jump logic
-        if (jumpPressed && groundedPlayer)
+        if (jumpPressed && coyoteTimeCounter > 0f)
         {
             playerVelocity.y += Mathf.Sqrt(jumpPower * -2f * gravity);
             jumpPressed = false;
+            coyoteTimeCounter = 0f;
             animator.SetBool("IsJumping", true);
         }
 

@@ -375,6 +375,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5336417954851577747, guid: acedd36426cc188438b84d7f5567c454, type: 3}
   m_PrefabInstance: {fileID: 5982623790504479634}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &569179614 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2330089374405411286, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+  m_PrefabInstance: {fileID: 146637081106246185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &686625278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -455,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movePlatform
   maxY: 5
-  minY: -5
+  minY: -1
   speed: 2
 --- !u!65 &796891306
 BoxCollider:
@@ -1576,9 +1581,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1513418453}
     - target: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
-      propertyPath: animator
+      propertyPath: fadeGroup
       value: 
-      objectReference: {fileID: 199200886765893187}
+      objectReference: {fileID: 569179614}
     - target: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
       propertyPath: freeLookCamera
       value: 
@@ -1635,11 +1640,6 @@ PrefabInstance:
 --- !u!4 &199200886765893186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3378350617038904610, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
-  m_PrefabInstance: {fileID: 199200886765893185}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &199200886765893187 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1220655231796809943, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
   m_PrefabInstance: {fileID: 199200886765893185}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5982623790504479634
