@@ -121,7 +121,7 @@ public class playerMovement : MonoBehaviour
             coin.Collect();
             Destroy(other.gameObject);
             coins++;
-            hudUI.setCoinUI(coins);
+            hudUI.SetCoinUI(coins);
         } else if (other.CompareTag("Checkpoint"))
         {
             lastCheckpointPos = transform.position;

@@ -12,7 +12,7 @@ public class HUDUI : MonoBehaviour
     public PlayerInput playerInput;
     public GameObject fade;
 
-    public void setCoinUI(int amount)
+    public void SetCoinUI(int amount)
     {
         coinText.text = "Coins: " + amount.ToString();
     }
