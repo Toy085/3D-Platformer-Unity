@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class playerMovement : MonoBehaviour
@@ -41,7 +42,6 @@ public class playerMovement : MonoBehaviour
     }
     private void OnJump(InputValue value)
     {
-        // For buttons, value.isPressed is true when pushed down
         jumpPressed = value.isPressed;
     }
 
@@ -125,6 +125,10 @@ public class playerMovement : MonoBehaviour
         } else if (other.CompareTag("Checkpoint"))
         {
             lastCheckpointPos = transform.position;
+        } else if (other.CompareTag("Finish"))
+        {
+            // Add finish level logic here
+            SceneManager.LoadScene("LevelSelect");
         }
     }
 
