@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 8512452751670789518}
   - component: {fileID: 494856397725356205}
   - component: {fileID: 9010772675344078363}
+  - component: {fileID: 7172605553598256841}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -259,7 +260,7 @@ MonoBehaviour:
   gravity: -9.81
   deathY: -2
   animator: {fileID: 1220655231796809943}
-  hudUI: {fileID: 0}
+  hudUI: {fileID: 7172605553598256841}
   fadeGroup: {fileID: 0}
   fadeDuration: 1
   freeLookCamera: {fileID: 0}
@@ -290,9 +291,24 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7172605553598256841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632578521422994730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ded71d1cbd95ab449f5c173b373bf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDUI
+  coinText: {fileID: 0}
+  pausePanel: {fileID: 0}
+  playerInput: {fileID: 9010772675344078363}
 --- !u!1 &3751229700734522367
 GameObject:
   m_ObjectHideFlags: 0
