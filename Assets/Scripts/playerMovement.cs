@@ -21,6 +21,7 @@ public class playerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float deathY = -5f;
     public Animator animator;
+    public int currentSaveSlot = 1;
 
     private int coins = 0;
     public HUDUI hudUI;
@@ -32,9 +33,14 @@ public class playerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        LoadGame(currentSaveSlot);
+
         lastCheckpointPos = transform.position;
+        hudUI.SetCoinUI(coins);
     }
     private void OnMove(InputValue value)
     {
@@ -125,11 +131,31 @@ public class playerMovement : MonoBehaviour
         } else if (other.CompareTag("Checkpoint"))
         {
             lastCheckpointPos = transform.position;
+            SaveGame(currentSaveSlot);
         } else if (other.CompareTag("Finish"))
         {
             // Add finish level logic here
             SceneManager.LoadScene("LevelSelect");
+            SaveGame(currentSaveSlot);
         }
+    }
+
+    public void SaveGame(int slot)
+    {
+        PlayerData data = new PlayerData();
+        data.coins = coins;
+        data.playerPosition = lastCheckpointPos;
+        SaveSystem.SavePlayer(data, slot);
+    }
+
+    public void LoadGame(int slot)
+    {
+        PlayerData data = SaveSystem.LoadPlayer(slot);
+        coins = data.coins;
+
+        controller.enabled = false;
+        transform.position = data.playerPosition != Vector3.zero ? data.playerPosition : transform.position;
+        controller.enabled = true;
     }
 
     IEnumerator Respawn()
