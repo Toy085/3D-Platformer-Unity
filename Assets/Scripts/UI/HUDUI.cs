@@ -8,6 +8,7 @@ public class HUDUI : MonoBehaviour
     public TextMeshProUGUI coinText;
 
     public GameObject pausePanel;
+    public GameObject HUDPanel;
     private bool isPaused = false;
     public PlayerInput playerInput;
     public GameObject fade;
@@ -32,6 +33,7 @@ public class HUDUI : MonoBehaviour
         playerInput.SwitchCurrentActionMap("UI");
         pausePanel.SetActive(true);
         fade.SetActive(false);
+        HUDPanel.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
 
@@ -44,6 +46,7 @@ public class HUDUI : MonoBehaviour
         playerInput.SwitchCurrentActionMap("Player");
         pausePanel.SetActive(false);
         fade.SetActive(true);
+        HUDPanel.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
 

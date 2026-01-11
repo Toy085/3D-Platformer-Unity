@@ -355,9 +355,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1373394422157729218, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1789809121450403436, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
       propertyPath: m_Name
       value: CanvasHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184199570768809657, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 2274615926716508617, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -375,6 +383,11 @@ PrefabInstance:
 --- !u!1 &103195747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6407882549168442893, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+  m_PrefabInstance: {fileID: 103195746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &103195748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4811678995163219590, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
   m_PrefabInstance: {fileID: 103195746}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &103195749 stripped
@@ -3267,6 +3280,10 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 103195747}
+    - target: {fileID: 7172605553598256841, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+      propertyPath: HUDPanel
+      value: 
+      objectReference: {fileID: 103195748}
     - target: {fileID: 7172605553598256841, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
       propertyPath: coinText
       value: 
