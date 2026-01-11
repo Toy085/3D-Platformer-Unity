@@ -10,6 +10,7 @@ public class HUDUI : MonoBehaviour
     public GameObject pausePanel;
     private bool isPaused = false;
     public PlayerInput playerInput;
+    public GameObject fade;
 
     public void setCoinUI(int amount)
     {
@@ -30,6 +31,7 @@ public class HUDUI : MonoBehaviour
     {
         playerInput.SwitchCurrentActionMap("UI");
         pausePanel.SetActive(true);
+        fade.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
 
@@ -41,6 +43,7 @@ public class HUDUI : MonoBehaviour
     {
         playerInput.SwitchCurrentActionMap("Player");
         pausePanel.SetActive(false);
+        fade.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
 
