@@ -43,4 +43,16 @@ public static class SaveSystem
     {
         return File.Exists(GetSavePath(slot));
     }
+
+    public static int GetSaveCount(int maxSlots)
+    {
+        int count = 0;
+        for (int i = 1; i <= maxSlots; i++)
+        {
+            if (SaveExists(i))
+                count++;
+        }
+        return count;
+    }
+
 }

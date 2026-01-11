@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
+    public GameObject saveMenuPanel;
 
     void Start()
     {
@@ -24,9 +25,15 @@ public class MainMenu : MonoBehaviour
         settingsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
-    public void StartGame()
+    public void OpenSaveMenu()
     {
-        SceneManager.LoadScene("LevelSelect"); // Change to save menu later
+        mainMenuPanel.SetActive(false);
+        saveMenuPanel.SetActive(true);
+    }
+    public void CloseSaveMenu()
+    {
+        saveMenuPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
     public void QuitGame()
     {

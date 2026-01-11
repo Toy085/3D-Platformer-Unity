@@ -37,6 +37,8 @@ public class playerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        currentSaveSlot = PlayerPrefs.GetInt("SelectedSlot", 1);
+
         LoadGame(currentSaveSlot);
 
         lastCheckpointPos = transform.position;
