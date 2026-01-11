@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelectCameraFollow
   target: {fileID: 1659308376}
-  offset: {x: 45, y: 60, z: -90}
+  offset: {x: 45, y: 60, z: -10}
   smoothSpeed: 5
 --- !u!1 &222027201
 GameObject:
@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af12abcc29d8e749a110f5365e86150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelSelectPlayerMovement
-  speed: 5
+  speed: 4
   rotationSpeed: 10
 --- !u!135 &1659308373
 SphereCollider:
