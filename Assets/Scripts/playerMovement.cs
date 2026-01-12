@@ -20,6 +20,9 @@ public class playerMovement : MonoBehaviour
     public float coyoteTime = 0.2f;
     public float gravity = -9.81f;
     public float deathY = -5f;
+    public HealthBar healthBar;
+    public float health = 100f;
+    public float maxHealth = 100f;
     public Animator animator;
     public int currentSaveSlot = 1;
 
@@ -43,6 +46,8 @@ public class playerMovement : MonoBehaviour
 
         lastCheckpointPos = transform.position;
         hudUI.SetCoinUI(coins);
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
     private void OnMove(InputValue value)
     {

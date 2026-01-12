@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerData
 {
     public int coins;
-    public float playerHealth;
+    public float maxHealth;
     public Vector3 playerPosition;
     public int currentLevel;
 }
