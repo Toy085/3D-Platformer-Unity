@@ -387,6 +387,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6226551063221741937, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 547.4822
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226551063221741937, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 95.214
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
