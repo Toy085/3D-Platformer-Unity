@@ -165,6 +165,16 @@ public class playerMovement : MonoBehaviour
         controller.enabled = true;
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        healthBar.SetHealth(health);
+        if (health <= 0)
+        {
+            StartCoroutine(Respawn());
+        }
+    }
+
     IEnumerator Respawn()
     {
         yield return StartCoroutine(Fade(1));
