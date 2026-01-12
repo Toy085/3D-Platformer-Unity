@@ -254,16 +254,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f409d35b6e9ffc43a2c2e856473c1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerMovement
+  airControlMultiplier: 0.8
   speed: 7
-  jumpPower: 5
+  jumpPower: 4
   coyoteTime: 0.2
   gravity: -9.81
   deathY: -2
-  animator: {fileID: 1220655231796809943}
+  health: 100
+  maxHealth: 100
+  healthBar: {fileID: 0}
   hudUI: {fileID: 7172605553598256841}
   fadeGroup: {fileID: 0}
   fadeDuration: 1
   freeLookCamera: {fileID: 0}
+  animator: {fileID: 1220655231796809943}
+  currentSaveSlot: 1
 --- !u!114 &9010772675344078363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUDUI
   coinText: {fileID: 0}
   pausePanel: {fileID: 0}
+  HUDPanel: {fileID: 0}
   playerInput: {fileID: 9010772675344078363}
+  fade: {fileID: 0}
 --- !u!1 &3751229700734522367
 GameObject:
   m_ObjectHideFlags: 0

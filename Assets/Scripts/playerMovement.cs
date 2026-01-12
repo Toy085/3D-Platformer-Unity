@@ -14,24 +14,28 @@ public class playerMovement : MonoBehaviour
     private bool groundedPlayer;
     private bool jumpPressed;
     private float coyoteTimeCounter;
+    private int coins = 0;
 
+    [Header("Movement Modifiers")]
+    [Range(0f, 1f)]
+    public float airControlMultiplier = 0.5f;
     public float speed = 5f;
     public float jumpPower = 2f;
     public float coyoteTime = 0.2f;
     public float gravity = -9.81f;
     public float deathY = -5f;
-    public HealthBar healthBar;
     public float health = 100f;
     public float maxHealth = 100f;
-    public Animator animator;
-    public int currentSaveSlot = 1;
-
-    private int coins = 0;
+    [Header("UI Elements")]
+    public HealthBar healthBar;
     public HUDUI hudUI;
     public CanvasGroup fadeGroup;
     public float fadeDuration = 1f;
 
+    [Header("Misc")]
     public CinemachineCamera freeLookCamera;
+    public Animator animator;
+    public int currentSaveSlot = 1;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -86,7 +90,8 @@ public class playerMovement : MonoBehaviour
 
         // Movement relative to camera
         Vector3 move = camForward * moveInput.y + camRight * moveInput.x;
-        controller.Move(move * Time.deltaTime * speed);
+        float appliedSpeed = groundedPlayer ? speed : speed * airControlMultiplier;
+        controller.Move(move * Time.deltaTime * appliedSpeed);
 
         // Rotate player to face movement direction
         if (move.magnitude > 0.1f)
