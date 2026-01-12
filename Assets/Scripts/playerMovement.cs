@@ -36,6 +36,7 @@ public class playerMovement : MonoBehaviour
     public CinemachineCamera freeLookCamera;
     public Animator animator;
     public int currentSaveSlot = 1;
+    public int levelsCompleted;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -146,17 +147,26 @@ public class playerMovement : MonoBehaviour
             SaveGame(currentSaveSlot);
         } else if (other.CompareTag("Finish"))
         {
-            // Add finish level logic here
-            SceneManager.LoadScene("LevelSelect");
+            PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
+            data.playerPosition = Vector3.zero;
+            data.checkpointSceneIndex = -1;
+
             SaveGame(currentSaveSlot);
+            SceneManager.LoadScene("LevelSelect");
         }
     }
 
     public void SaveGame(int slot)
     {
-        PlayerData data = new PlayerData();
+        PlayerData data = SaveSystem.LoadPlayer(slot);
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        data.levelsCompleted = Mathf.Max(data.levelsCompleted, sceneIndex);
         data.coins = coins;
+
         data.playerPosition = lastCheckpointPos;
+        data.checkpointSceneIndex = sceneIndex;
+
         SaveSystem.SavePlayer(data, slot);
     }
 
@@ -165,8 +175,18 @@ public class playerMovement : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer(slot);
         coins = data.coins;
 
-        controller.enabled = false;
-        transform.position = data.playerPosition != Vector3.zero ? data.playerPosition : transform.position;
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+
+        if (data.checkpointSceneIndex == currentScene)
+        {
+            transform.position = data.playerPosition;
+            lastCheckpointPos = data.playerPosition;
+        }
+        else
+        {
+            lastCheckpointPos = transform.position;
+        }
+
         controller.enabled = true;
     }
 
