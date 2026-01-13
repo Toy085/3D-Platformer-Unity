@@ -202,11 +202,13 @@ public class playerMovement : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        yield return StartCoroutine(Fade(1));
-
         controller.enabled = false;
+        yield return StartCoroutine(Fade(1));
+        
         transform.position = lastCheckpointPos;
         playerVelocity = Vector3.zero;
+        health = maxHealth;
+        healthBar.SetHealth(health);
         controller.enabled = true;
         yield return StartCoroutine(Fade(1));
         yield return StartCoroutine(Fade(0));
