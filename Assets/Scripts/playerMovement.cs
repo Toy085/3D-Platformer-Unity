@@ -90,9 +90,16 @@ public class playerMovement : MonoBehaviour
         camRight.Normalize();
 
         // Movement relative to camera
+        if (moveInput.magnitude > 1f)
+        {
+            moveInput.Normalize();
+        }
         Vector3 move = camForward * moveInput.y + camRight * moveInput.x;
         float appliedSpeed = groundedPlayer ? speed : speed * airControlMultiplier;
+        if (controller.enabled)
+        {
         controller.Move(move * Time.deltaTime * appliedSpeed);
+        }
 
         // Rotate player to face movement direction
         if (move.magnitude > 0.1f)
@@ -111,7 +118,10 @@ public class playerMovement : MonoBehaviour
         }
 
         playerVelocity.y += gravity * Time.deltaTime;
+        if (controller.enabled)
+        {
         controller.Move(playerVelocity * Time.deltaTime);
+        }
 
         float speedPercent = move.magnitude / 1f;
         animator.SetFloat("Speed", speedPercent);
@@ -202,9 +212,9 @@ public class playerMovement : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        controller.enabled = false;
         yield return StartCoroutine(Fade(1));
-        
+
+        controller.enabled = false;        
         transform.position = lastCheckpointPos;
         playerVelocity = Vector3.zero;
         health = maxHealth;
