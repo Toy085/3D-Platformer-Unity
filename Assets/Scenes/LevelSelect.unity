@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUDUI
   coinText: {fileID: 0}
   pausePanel: {fileID: 1587520015}
-  HUDPanel: {fileID: 0}
+  HUDPanel: {fileID: 883346535}
   playerInput: {fileID: 1659308377}
   fade: {fileID: 883346535}
 --- !u!1 &1754443418
