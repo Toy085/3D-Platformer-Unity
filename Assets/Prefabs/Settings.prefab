@@ -1159,7 +1159,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7386427644451992066}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bec85ba2af2e8c4c951d7792ceff9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Settings
-  settingsPanel: {fileID: 0}
+  settingsPanel: {fileID: 7386427644451992066}
   fullscreenToggle: {fileID: 1354730296811929967}
   volumeSlider: {fileID: 7368020493742160562}
   sensitivitySlider: {fileID: 0}
