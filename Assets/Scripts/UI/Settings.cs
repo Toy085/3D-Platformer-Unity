@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
+    public GameObject settingsPanel;
     public Toggle fullscreenToggle;
     public Slider volumeSlider;
     public Slider sensitivitySlider;
@@ -18,6 +19,14 @@ public class Settings : MonoBehaviour
         {
             fullscreenToggle.isOn = isFullscreen;
         }
+    }
+    public void OpenSettings()
+    {
+        settingsPanel.SetActive(true);
+    }
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
     }
 
     public void SetVolume(float value)

@@ -15,17 +15,6 @@ public class MainMenu : MonoBehaviour
         bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         Screen.fullScreen = isFullscreen;
     }
-
-    public void OpenSettings()
-    {
-        mainMenuPanel.SetActive(false);
-        settingsPanel.SetActive(true);
-    }
-    public void CloseSettings()
-    {
-        settingsPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
-    }
     public void OpenSaveMenu()
     {
         mainMenuPanel.SetActive(false);
