@@ -2,21 +2,39 @@ using UnityEngine;
 
 public class movePlatform : MonoBehaviour
 {
-    public float maxY;
-    public float minY;
-    public float speed;
-    private bool up = true;
+    [Header("Movement Settings")]
+    public Vector3 startPos;
+    public Vector3 endPos;
+    public float speed = 3f;
+    public float waitTime = 2f;
 
-    // Update is called once per frame
+    private Vector3 targetPos;
+    private float waitTimer = 0f;
+    private bool movingToEnd = true;
+
+    void Start()
+    {
+        transform.position = startPos;
+        targetPos = endPos;
+    }
+
     void Update()
     {
-        float direction = up ? 1f : -1f;
-        transform.position += Vector3.up * speed * Time.deltaTime * direction;
+        if (waitTimer > 0)
+        {
+            waitTimer -= Time.deltaTime;
+            return;
+        }
 
-        if (transform.position.y >= maxY)
-            up = false;
-        else if (transform.position.y <= minY)
-            up = true;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, targetPos) < 0.001f)
+        {
+            waitTimer = waitTime;
+
+            movingToEnd = !movingToEnd;
+            targetPos = movingToEnd ? endPos : startPos;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -34,5 +52,4 @@ public class movePlatform : MonoBehaviour
             collision.transform.SetParent(null);
         }
     }
-
 }
