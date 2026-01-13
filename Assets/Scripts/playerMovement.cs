@@ -15,6 +15,9 @@ public class playerMovement : MonoBehaviour
     private bool jumpPressed;
     private float coyoteTimeCounter;
     private int coins = 0;
+    private float knockbackTimer;
+    private Vector3 knockbackVelocity = Vector3.zero;
+
 
     [Header("Movement Modifiers")]
     [Range(0f, 1f)]
@@ -26,6 +29,11 @@ public class playerMovement : MonoBehaviour
     public float deathY = -5f;
     public float health = 100f;
     public float maxHealth = 100f;
+    [Header("Knockback")]
+    public float knockbackForce = 8f;
+    public float knockbackDuration = 0.2f;
+    public float knockbackUpwardForce = 2f;
+
     [Header("UI Elements")]
     public HealthBar healthBar;
     public HUDUI hudUI;
@@ -36,7 +44,6 @@ public class playerMovement : MonoBehaviour
     public CinemachineCamera freeLookCamera;
     public Animator animator;
     public int currentSaveSlot = 1;
-    public int levelsCompleted;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -67,7 +74,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if (groundedPlayer && playerVelocity.y < 0 && knockbackTimer <= 0)
         {
             playerVelocity.y = -2f;
         }
@@ -94,33 +101,51 @@ public class playerMovement : MonoBehaviour
         {
             moveInput.Normalize();
         }
-        Vector3 move = camForward * moveInput.y + camRight * moveInput.x;
-        float appliedSpeed = groundedPlayer ? speed : speed * airControlMultiplier;
-        if (controller.enabled)
+        
+        Vector3 move = Vector3.zero;
+
+        if (knockbackTimer > 0)
         {
-        controller.Move(move * Time.deltaTime * appliedSpeed);
+            controller.Move(knockbackVelocity * Time.deltaTime);
+
+            knockbackVelocity.y = Mathf.Lerp(knockbackVelocity.y, 0, 15f * Time.deltaTime);
+
+            knockbackVelocity.x = Mathf.Lerp(knockbackVelocity.x, 0, 10f * Time.deltaTime);
+            knockbackVelocity.z = Mathf.Lerp(knockbackVelocity.z, 0, 10f * Time.deltaTime);
+
+            knockbackTimer -= Time.deltaTime;
+
+            jumpPressed = false;
         }
+        else
+        {
+            move = camForward * moveInput.y + camRight * moveInput.x;
+            float appliedSpeed = groundedPlayer ? speed : speed * airControlMultiplier;
+            controller.Move(move * Time.deltaTime * appliedSpeed);
+
+            // Jump logic
+            if (jumpPressed && coyoteTimeCounter > 0f)
+            {
+                playerVelocity.y += Mathf.Sqrt(jumpPower * -2f * gravity);
+                jumpPressed = false;
+                coyoteTimeCounter = 0f;
+                animator.SetBool("IsJumping", true);
+            }
+
+            playerVelocity.y += gravity * Time.deltaTime;
+            if (controller.enabled)
+            {
+                controller.Move(playerVelocity * Time.deltaTime);
+            }
+        }
+
+
 
         // Rotate player to face movement direction
         if (move.magnitude > 0.1f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
-        }
-
-        // Jump logic
-        if (jumpPressed && coyoteTimeCounter > 0f)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpPower * -2f * gravity);
-            jumpPressed = false;
-            coyoteTimeCounter = 0f;
-            animator.SetBool("IsJumping", true);
-        }
-
-        playerVelocity.y += gravity * Time.deltaTime;
-        if (controller.enabled)
-        {
-        controller.Move(playerVelocity * Time.deltaTime);
         }
 
         float speedPercent = move.magnitude / 1f;
@@ -209,6 +234,19 @@ public class playerMovement : MonoBehaviour
             StartCoroutine(Respawn());
         }
     }
+
+    public void ApplyKnockback(Vector3 sourcePosition)
+    {
+        Vector3 direction = (transform.position - sourcePosition).normalized;
+        direction.y = 0;
+
+        knockbackVelocity = direction * knockbackForce;
+        knockbackVelocity.y = knockbackUpwardForce;
+        playerVelocity = Vector3.zero;
+
+        knockbackTimer = knockbackDuration;
+    }
+
 
     IEnumerator Respawn()
     {

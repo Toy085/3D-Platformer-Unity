@@ -47,6 +47,7 @@ public class Spikes : MonoBehaviour
                 if (player != null)
                 {
                     player.TakeDamage(damageAmount);
+                    player.ApplyKnockback(transform.position);
                 }
             }
         }

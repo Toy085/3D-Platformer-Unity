@@ -262,6 +262,9 @@ MonoBehaviour:
   deathY: -2
   health: 100
   maxHealth: 100
+  knockbackForce: 26
+  knockbackDuration: 0.2
+  knockbackUpwardForce: 14
   healthBar: {fileID: 0}
   hudUI: {fileID: 7172605553598256841}
   fadeGroup: {fileID: 0}
