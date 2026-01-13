@@ -45,4 +45,10 @@ public class SaveMenu : MonoBehaviour
             SceneManager.LoadScene("LevelSelect");
         }
     }
+
+    public void OnDeleteSlot(int slot)
+    {
+        SaveSystem.DeleteSave(slot);
+        PopulateSlots();
+    }
 }
