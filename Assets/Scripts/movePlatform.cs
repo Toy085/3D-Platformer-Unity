@@ -53,7 +53,7 @@ public class movePlatform : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(startPos, endPos);
