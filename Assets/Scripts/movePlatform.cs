@@ -52,4 +52,12 @@ public class movePlatform : MonoBehaviour
             collision.transform.SetParent(null);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(startPos, endPos);
+        Gizmos.DrawWireMesh(transform.GetComponent<MeshFilter>().sharedMesh, startPos, Quaternion.identity, transform.localScale);
+        Gizmos.DrawWireMesh(transform.GetComponent<MeshFilter>().sharedMesh, endPos, Quaternion.identity, transform.localScale);
+    }
 }
