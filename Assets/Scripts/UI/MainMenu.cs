@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System;
 
 public class MainMenu : MonoBehaviour
@@ -11,9 +11,10 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         AudioListener.volume = PlayerPrefs.GetFloat("Volume", 1f);
-        Screen.fullScreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
-    }
 
+        bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
+        Screen.fullScreen = isFullscreen;
+    }
 
     public void OpenSettings()
     {
@@ -38,20 +39,5 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void SetVolume(float value)
-    {
-        AudioListener.volume = value;
-        PlayerPrefs.SetFloat("Volume", value);
-    }
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-        PlayerPrefs.SetInt("Fullscreen", isFullscreen ? 1 : 0);
-    }
-    public void SetSensitivity(float value)
-    {
-        PlayerPrefs.SetFloat("Sensitivity", value);
     }
 }
