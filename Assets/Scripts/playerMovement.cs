@@ -180,6 +180,12 @@ public class playerMovement : MonoBehaviour
         {
             lastCheckpointPos = transform.position;
             SaveGame(currentSaveSlot);
+
+            Checkpoint checkpoint = other.GetComponent<Checkpoint>();
+            if (checkpoint != null)
+            {
+                checkpoint.Activate();
+            }
         } else if (other.CompareTag("Finish"))
         {
             PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
