@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -8,4 +9,5 @@ public class PlayerData
     public Vector3 playerPosition = Vector3.zero;
     public int levelsCompleted = 0;
     public int checkpointSceneIndex = -1;
+    public List<int> cosmetics = new List<int>();
 }
