@@ -121,7 +121,20 @@ public class playerMovement : MonoBehaviour
         {
             move = camForward * moveInput.y + camRight * moveInput.x;
             float appliedSpeed = groundedPlayer ? speed : speed * airControlMultiplier;
-            controller.Move(move * Time.deltaTime * appliedSpeed);
+            Vector3 playerIntent = move * Time.deltaTime * appliedSpeed;
+
+            Vector3 platformMovement = Vector3.zero;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f)) 
+            {
+                movePlatform platform = hit.collider.GetComponent<movePlatform>();
+                if (platform != null)
+                {
+                    platformMovement = platform.platformDelta;
+                }
+            }
+
+            controller.Move(playerIntent + platformMovement);
 
             // Jump logic
             if (jumpPressed && coyoteTimeCounter > 0f)

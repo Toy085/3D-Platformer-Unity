@@ -410,6 +410,8 @@ MonoBehaviour:
   endPos: {x: 60, y: -3, z: 30}
   speed: 3.5
   waitTime: 2
+  doDamage: 0
+  damageAmount: 20
 --- !u!65 &134520598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2306,6 +2308,8 @@ MonoBehaviour:
   endPos: {x: 0, y: 7, z: 30}
   speed: 3.5
   waitTime: 2
+  doDamage: 0
+  damageAmount: 20
 --- !u!65 &1912551226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2441,6 +2445,8 @@ MonoBehaviour:
   endPos: {x: 0, y: -3, z: 10}
   speed: 3.5
   waitTime: 2
+  doDamage: 0
+  damageAmount: 20
 --- !u!65 &2020772704
 BoxCollider:
   m_ObjectHideFlags: 0

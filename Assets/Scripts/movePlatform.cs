@@ -15,14 +15,21 @@ public class movePlatform : MonoBehaviour
     private float waitTimer = 0f;
     private bool movingToEnd = true;
 
+    public Vector3 platformDelta { get; private set; }
+    private Vector3 lastPosition;
+
     void Start()
     {
         transform.position = startPos;
+        lastPosition = transform.position;
         targetPos = endPos;
     }
 
     void Update()
     {
+        platformDelta = transform.position - lastPosition;
+        lastPosition = transform.position;
+
         if (waitTimer > 0)
         {
             waitTimer -= Time.deltaTime;
@@ -42,26 +49,12 @@ public class movePlatform : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(transform);
-            if (doDamage)
-            {
-                playerMovement player = collision.gameObject.GetComponent<playerMovement>();
-                if (player != null)
-                {
-                    player.TakeDamage(damageAmount);
-                    player.ApplyKnockback(transform.position);
-                }
-            }
-        }
-    }
+        playerMovement player = collision.gameObject.GetComponent<playerMovement>();
 
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && doDamage && player != null)
         {
-            collision.transform.SetParent(null);
+            player.TakeDamage(damageAmount);
+            player.ApplyKnockback(transform.position);
         }
     }
 
