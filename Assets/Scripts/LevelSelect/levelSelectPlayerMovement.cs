@@ -7,6 +7,12 @@ public class levelSelectPlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
 
     private Vector2 moveInput;
+    private Rigidbody rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void OnMove(InputValue value)
     {
@@ -25,7 +31,7 @@ public class levelSelectPlayerMovement : MonoBehaviour
         if (move.magnitude > 0.1f)
         {
             // Move
-            transform.position += move * speed * Time.deltaTime;
+            rb.MovePosition(rb.position + move * speed * Time.deltaTime);
 
             // Rotate to face movement
             Quaternion targetRotation = Quaternion.LookRotation(move);
