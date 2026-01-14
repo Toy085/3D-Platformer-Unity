@@ -34,12 +34,12 @@ public class levelSelectPlayerMovement : MonoBehaviour
             rb.MovePosition(rb.position + move * speed * Time.deltaTime);
 
             // Rotate to face movement
-            Quaternion targetRotation = Quaternion.LookRotation(move);
+            /*Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 targetRotation,
                 rotationSpeed * Time.deltaTime
-            );
+            );*/
         }
     }
 }
