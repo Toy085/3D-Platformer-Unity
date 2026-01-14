@@ -266,6 +266,23 @@ public class playerMovement : MonoBehaviour
         knockbackTimer = knockbackDuration;
     }
 
+    private void OnInteract(InputValue value)
+    {
+        Debug.Log("Interact button pressed!");
+        Shop[] shops = FindObjectsByType<Shop>(FindObjectsSortMode.None);
+    
+        foreach (Shop shop in shops)
+        {
+            float distance = Vector3.Distance(transform.position, shop.transform.position + shop.Offset);
+        
+            if (distance <= shop.interactDistance)
+            {
+                shop.OpenShop();
+                break;
+            }
+        }
+    }
+
 
     IEnumerator Respawn()
     {
