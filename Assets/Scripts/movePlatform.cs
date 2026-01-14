@@ -47,11 +47,11 @@ public class movePlatform : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        playerMovement player = collision.gameObject.GetComponent<playerMovement>();
+        playerMovement player = other.GetComponent<playerMovement>();
 
-        if (collision.gameObject.CompareTag("Player") && doDamage && player != null)
+        if (other.CompareTag("Player") && doDamage && player != null)
         {
             player.TakeDamage(damageAmount);
             player.ApplyKnockback(transform.position);
