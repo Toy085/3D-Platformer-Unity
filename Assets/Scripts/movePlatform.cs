@@ -7,6 +7,9 @@ public class movePlatform : MonoBehaviour
     public Vector3 endPos;
     public float speed = 3f;
     public float waitTime = 2f;
+    [Header("Damage Settings")]
+    public bool doDamage = false;
+    public float damageAmount = 20f;
 
     private Vector3 targetPos;
     private float waitTimer = 0f;
@@ -42,6 +45,15 @@ public class movePlatform : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.transform.SetParent(transform);
+            if (doDamage)
+            {
+                playerMovement player = collision.gameObject.GetComponent<playerMovement>();
+                if (player != null)
+                {
+                    player.TakeDamage(damageAmount);
+                    player.ApplyKnockback(transform.position);
+                }
+            }
         }
     }
 
