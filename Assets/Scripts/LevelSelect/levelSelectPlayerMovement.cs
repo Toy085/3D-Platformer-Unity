@@ -13,6 +13,11 @@ public class levelSelectPlayerMovement : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;   
+    }
     void Update()
     {
         Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
