@@ -48,6 +48,6 @@ public class levelSelectPlayerMovement : MonoBehaviour
             );*/
         }
 
-        shop.TryOpenShop();
+        //shop.TryOpenShop();
     }
 }
