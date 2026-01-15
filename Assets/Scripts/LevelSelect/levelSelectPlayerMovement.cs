@@ -5,6 +5,7 @@ public class levelSelectPlayerMovement : MonoBehaviour
 {
     public float speed = 4f;
     public float rotationSpeed = 10f;
+    public Shop shop;
 
     private Vector2 moveInput;
     private Rigidbody rb;
@@ -17,6 +18,11 @@ public class levelSelectPlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        shop.TryOpenShop();
     }
 
     void Start()
@@ -41,5 +47,7 @@ public class levelSelectPlayerMovement : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );*/
         }
+
+        shop.TryOpenShop();
     }
 }

@@ -34,12 +34,12 @@ public class Shop : MonoBehaviour
         if (isNear) UpdatePromptIcon();
     }
     
-    public void OnInteract(InputValue value)
+    public void TryOpenShop()
     {
         if (shopOpen)
             return;
 
-        float distance = Vector3.Distance(player.position, transform.position);
+        float distance = Vector3.Distance(player.position, transform.position + Offset);
 
         if (distance <= interactDistance)
         {
