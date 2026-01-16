@@ -59,4 +59,15 @@ public class HUDUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ExitLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("LevelSelect");
+    }
 }

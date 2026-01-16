@@ -778,6 +778,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 1878076325517101889, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1659308379}
+    - target: {fileID: 1878076325517101889, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2274615926716508617, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
