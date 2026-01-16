@@ -10,4 +10,7 @@ public class PlayerData
     public int levelsCompleted = 0;
     public int checkpointSceneIndex = -1;
     public List<int> cosmetics = new List<int>();
+    public int equippedCosmetic = -1;
+    public List<int> abilities = new List<int>();
+    public int equippedAbility = -1;
 }
