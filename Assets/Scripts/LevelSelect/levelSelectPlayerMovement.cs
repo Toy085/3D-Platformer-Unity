@@ -20,7 +20,7 @@ public class levelSelectPlayerMovement : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-    public void OnInteract(InputValue value)
+    public void OnUse(InputValue value)
     {
         shop.TryOpenShop();
     }
@@ -47,7 +47,5 @@ public class levelSelectPlayerMovement : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );*/
         }
-
-        //shop.TryOpenShop();
     }
 }
