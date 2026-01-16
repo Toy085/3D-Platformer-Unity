@@ -11,7 +11,7 @@ public class Shop : MonoBehaviour
     public Transform player;
     public float interactDistance = 3f;
     public GameObject promptUI;
-    public PlayerData playerData;
+    
     public List<ShopItem> itemsForSale;
 
     [Header("Prompt Sprites")]
@@ -21,6 +21,7 @@ public class Shop : MonoBehaviour
     private Image promptImage;
     private PlayerInput playerInput;
     private bool shopOpen = false;
+    private PlayerData playerData;
 
     void Awake()
     {
