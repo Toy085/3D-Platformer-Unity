@@ -6510,6 +6510,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522074872}
   m_CullTransparentMesh: 1
+--- !u!1 &1532391552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6595924446062258654, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
+  m_PrefabInstance: {fileID: 5249884648240701962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1532391557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532391552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7baf2a909f7c643bbfd79ecb1399f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BillboardText
 --- !u!1 &1659308371
 GameObject:
   m_ObjectHideFlags: 0
@@ -7013,6 +7030,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 675117973}
     - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
+      propertyPath: gamepadSprite
+      value: 
+      objectReference: {fileID: 17307926, guid: 0a9a7bdf8561e004d8eecec61880c1a8, type: 3}
+    - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
+      propertyPath: keyboardSprite
+      value: 
+      objectReference: {fileID: -1686122601, guid: c7e3a20906683f647a371a173b74dbbd, type: 3}
+    - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       propertyPath: interactDistance
       value: 8
       objectReference: {fileID: 0}
@@ -7068,6 +7093,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6819563406491671390, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6595924446062258654, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1532391557}
   m_SourcePrefab: {fileID: 100100000, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
 --- !u!1001 &8136713594963704338
 PrefabInstance:
