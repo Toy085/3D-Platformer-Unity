@@ -9,6 +9,7 @@ public class movePlatform : MonoBehaviour
     public float waitTime = 2f;
     [Header("Damage Settings")]
     public bool doDamage = false;
+    public bool isSaw = false;
     public float damageAmount = 20f;
 
     private Vector3 targetPos;
@@ -45,6 +46,10 @@ public class movePlatform : MonoBehaviour
             movingToEnd = !movingToEnd;
             targetPos = movingToEnd ? endPos : startPos;
         }
+        if (isSaw)
+        {
+            transform.Rotate(Vector3.forward, 360 * Time.deltaTime);
+        }   
     }
 
     void OnTriggerEnter(Collider other)
