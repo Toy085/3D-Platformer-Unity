@@ -501,6 +501,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &154676848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2516165026040153329, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_Name
+      value: Level Select Button (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768975910851443102, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230173979333862163, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: levelSceneName
+      value: Level6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230173979333862163, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: UnlockAfterLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864639264380291978, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      propertyPath: m_text
+      value: Level 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 93064015266153250, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
 --- !u!1 &222027201
 GameObject:
   m_ObjectHideFlags: 0
@@ -6510,23 +6582,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522074872}
   m_CullTransparentMesh: 1
---- !u!1 &1532391552 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6595924446062258654, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
-  m_PrefabInstance: {fileID: 5249884648240701962}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1532391557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532391552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7baf2a909f7c643bbfd79ecb1399f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BillboardText
 --- !u!1 &1659308371
 GameObject:
   m_ObjectHideFlags: 0
@@ -7029,18 +7084,6 @@ PrefabInstance:
       propertyPath: shopUI
       value: 
       objectReference: {fileID: 675117973}
-    - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
-      propertyPath: gamepadSprite
-      value: 
-      objectReference: {fileID: 17307926, guid: 0a9a7bdf8561e004d8eecec61880c1a8, type: 3}
-    - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
-      propertyPath: keyboardSprite
-      value: 
-      objectReference: {fileID: -1686122601, guid: c7e3a20906683f647a371a173b74dbbd, type: 3}
-    - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
-      propertyPath: interactDistance
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6617367826747086253, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       propertyPath: m_Name
       value: Shop
@@ -7085,17 +7128,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3864602453192078239, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6819563406491671390, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6595924446062258654, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1532391557}
   m_SourcePrefab: {fileID: 100100000, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
 --- !u!1001 &8136713594963704338
 PrefabInstance:
@@ -7171,5 +7210,6 @@ SceneRoots:
   - {fileID: 1143629479}
   - {fileID: 1061583576}
   - {fileID: 1709385950}
+  - {fileID: 154676848}
   - {fileID: 229956827}
   - {fileID: 5249884648240701962}

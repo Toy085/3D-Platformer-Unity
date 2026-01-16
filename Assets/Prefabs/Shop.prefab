@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6002446709219966740}
   - component: {fileID: 607926837876702291}
   - component: {fileID: 4729497186825746333}
+  - component: {fileID: 650733140081761326}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &650733140081761326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595924446062258654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7baf2a909f7c643bbfd79ecb1399f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BillboardText
 --- !u!1 &6617367826747086253
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,10 +167,11 @@ MonoBehaviour:
   Offset: {x: -2.48, y: 0, z: -1.39}
   shopUI: {fileID: 0}
   player: {fileID: 0}
-  interactDistance: 8
+  interactDistance: 10
   promptUI: {fileID: 6646511324034656933}
-  keyboardSprite: {fileID: 1150962573, guid: 19469bd018c540848ac74e0afef9cddf, type: 3}
-  gamepadSprite: {fileID: 1150962573, guid: 19469bd018c540848ac74e0afef9cddf, type: 3}
+  itemsForSale: []
+  keyboardSprite: {fileID: -1686122601, guid: c7e3a20906683f647a371a173b74dbbd, type: 3}
+  gamepadSprite: {fileID: 17307926, guid: 0a9a7bdf8561e004d8eecec61880c1a8, type: 3}
 --- !u!1 &6646511324034656933
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,9 +729,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a84813e0ae3caae439b8eec214f7af52, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3864602453192078239}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a84813e0ae3caae439b8eec214f7af52, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4352414281605092973}
   m_SourcePrefab: {fileID: 100100000, guid: a84813e0ae3caae439b8eec214f7af52, type: 3}
 --- !u!4 &8098992816794617084 stripped
@@ -730,22 +741,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a84813e0ae3caae439b8eec214f7af52, type: 3}
   m_PrefabInstance: {fileID: 8642370795546780439}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &3864602453192078239
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8876233825794629190}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7033763884837577785, guid: a84813e0ae3caae439b8eec214f7af52, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!65 &4352414281605092973
 BoxCollider:
   m_ObjectHideFlags: 0
