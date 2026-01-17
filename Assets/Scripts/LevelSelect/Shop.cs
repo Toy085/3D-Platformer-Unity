@@ -123,7 +123,7 @@ public class Shop : MonoBehaviour
         CosmeticManager cm = player.GetComponent<CosmeticManager>();
         if (cm != null)
         {
-            cm.ApplyCosmetic(itemID);
+            cm.EquipOwnedItem(itemID);
         }
 
         PopulateShopItems();

@@ -367,7 +367,16 @@ MonoBehaviour:
   playerMesh: {fileID: 414670526813945395}
   defaultMaterial: {fileID: 2100000, guid: ded5c498346135c4da014c30e9d8ff96, type: 2}
   hatSlot: {fileID: 1787993254190609553}
-  availableCosmetics: []
+  leftShoeSlot: {fileID: 4051102233626361128}
+  rightShoeSlot: {fileID: 2572422486201235704}
+  availableCosmetics:
+  - id: 0
+    type: 1
+    cosmeticType: 1
+    itemName: Cap
+    price: 0
+    itemPrefab: {fileID: 547001787343651416, guid: 06691021dafcb6c40b9e511150012837, type: 3}
+    icon: {fileID: 0}
 --- !u!1 &3751229700734522367
 GameObject:
   m_ObjectHideFlags: 0

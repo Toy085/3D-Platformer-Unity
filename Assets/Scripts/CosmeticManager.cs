@@ -28,9 +28,12 @@ public class CosmeticManager : MonoBehaviour
         int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
         PlayerData data = SaveSystem.LoadPlayer(slot);
 
-        if (data.equippedCosmetic != -1)
+        if (data != null && data.equippedCosmetic != -1)
         {
             ApplyCosmetic(data.equippedCosmetic);
+        } else 
+        {
+            ResetToDefault();
         }
     }
 
@@ -78,5 +81,12 @@ public class CosmeticManager : MonoBehaviour
             
             ApplyCosmetic(itemID);
         }
+    }
+
+    public void ResetToDefault()
+    {
+        if (currentHat != null) Destroy(currentHat);
+        if (currentShoes != null) Destroy(currentShoes);
+        if (playerMesh != null) playerMesh.material = defaultMaterial;
     }
 }

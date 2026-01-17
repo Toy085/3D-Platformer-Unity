@@ -6666,6 +6666,8 @@ MonoBehaviour:
   playerMesh: {fileID: 1659308374}
   defaultMaterial: {fileID: 2100000, guid: 3f2386dc5414b2240a5d9a56e3480528, type: 2}
   hatSlot: {fileID: 1659308376}
+  leftShoeSlot: {fileID: 0}
+  rightShoeSlot: {fileID: 0}
   availableCosmetics: []
 --- !u!1 &1687653955
 GameObject:
@@ -7305,7 +7307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       propertyPath: itemsForSale.Array.data[0].price
-      value: 75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       propertyPath: itemsForSale.Array.data[0].itemName
