@@ -12,15 +12,54 @@ public class CosmeticManager : MonoBehaviour
     private GameObject currentHat;
     private Material currentMatSkin;
     private GameObject currentShoes;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    private void Awake()
     {
-        
+        if (playerMesh != null)
+        {
+            playerMesh.material = defaultMaterial;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
+        PlayerData data = SaveSystem.LoadPlayer(slot);
+
+        if (data.equippedCosmetic != -1)
+        {
+            ApplyCosmetic(data.equippedCosmetic);
+        }
+    }
+
+    private void ApplyCosmetic(int cosmeticID)
+    {
+        ShopItem cosmetic = availableCosmetics.Find(item => item.id == cosmeticID);
+        if (cosmetic != null)
+        {
+            switch (cosmetic.cosmeticType)
+            {
+                case 1: // Hat
+                    if (currentHat != null)
+                        Destroy(currentHat);
+                    currentHat = Instantiate(cosmetic.itemPrefab, hatSlot);
+                    break;
+                case 2: // Mat Skin
+                    if (playerMesh != null)
+                    {
+                        currentMatSkin = cosmetic.itemPrefab.GetComponent<Renderer>().sharedMaterial;
+                        playerMesh.material = currentMatSkin;
+                    }
+                    break;
+                case 3: // Shoes
+                    if (currentShoes != null)
+                        Destroy(currentShoes);
+                    currentShoes = Instantiate(cosmetic.itemPrefab, transform);
+                    break;
+                default:
+                    Debug.LogWarning("Unknown cosmetic type.");
+                    break;
+            }
+        }
     }
 }
