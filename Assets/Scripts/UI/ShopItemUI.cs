@@ -13,7 +13,7 @@ public class ShopItemUI : MonoBehaviour
     private int _itemID;
     private Shop _shopReference;
 
-    private void Setup(ShopItem item, Shop shopScript, bool isOwned)
+    public void Setup(ShopItem item, Shop shopScript, bool isOwned)
     {
         itemNameText.text = item.itemName;
         itemPriceText.text = item.price.ToString();

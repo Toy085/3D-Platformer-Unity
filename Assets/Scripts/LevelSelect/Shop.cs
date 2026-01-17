@@ -22,11 +22,13 @@ public class Shop : MonoBehaviour
     private PlayerInput playerInput;
     private bool shopOpen = false;
     private PlayerData playerData;
+    private ShopUI shopUIHandler;
 
     void Awake()
     {
         promptImage = promptUI.GetComponent<Image>();
         playerInput = player.GetComponent<PlayerInput>();
+        shopUIHandler = shopUI.GetComponent<ShopUI>();
     }
 
     void Update()
@@ -90,13 +92,14 @@ public class Shop : MonoBehaviour
 
     public void PopulateShopItems()
     {
-        /*ShopUI shopUIComponent = shopUI.GetComponent<ShopUI>();
-        shopUIComponent.ClearItems();
-
-        foreach (ShopItem item in itemsForSale)
+        if (shopUIHandler != null)
         {
-            shopUIComponent.AddItem(item);
-        }*/
+            shopUIHandler.PopulateShop(itemsForSale, this, playerData);
+        }
+        else
+        {
+            Debug.LogError("ShopUI component not found on the shopUI GameObject!");
+        }
     }
 
     public void BuyItem(int itemID)
