@@ -15,6 +15,8 @@ public class ShopItemUI : MonoBehaviour
 
     public void Setup(ShopItem item, Shop shopScript, bool isOwned)
     {
+        if (item == null) return;
+
         itemNameText.text = item.itemName;
         itemPriceText.text = item.price.ToString();
 
