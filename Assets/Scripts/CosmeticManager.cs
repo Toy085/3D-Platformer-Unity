@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CosmeticManager : MonoBehaviour
 {
-    public SkinnedMeshRenderer playerMesh;
+    public MeshRenderer playerMesh;
     public Material defaultMaterial;
     public Transform hatSlot;
 
@@ -32,7 +32,7 @@ public class CosmeticManager : MonoBehaviour
         }
     }
 
-    private void ApplyCosmetic(int cosmeticID)
+    public void ApplyCosmetic(int cosmeticID)
     {
         ShopItem cosmetic = availableCosmetics.Find(item => item.id == cosmeticID);
         if (cosmetic != null)

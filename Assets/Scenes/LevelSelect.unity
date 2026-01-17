@@ -6457,6 +6457,7 @@ GameObject:
   - component: {fileID: 1659308378}
   - component: {fileID: 1659308379}
   - component: {fileID: 1659308380}
+  - component: {fileID: 1659308381}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6650,6 +6651,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1659308381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659308371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b21199be7e71be4e8f7774a4672957b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CosmeticManager
+  playerMesh: {fileID: 1659308374}
+  defaultMaterial: {fileID: 2100000, guid: 3f2386dc5414b2240a5d9a56e3480528, type: 2}
+  hatSlot: {fileID: 1659308376}
+  availableCosmetics: []
 --- !u!1 &1687653955
 GameObject:
   m_ObjectHideFlags: 0

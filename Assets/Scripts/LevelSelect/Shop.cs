@@ -115,8 +115,16 @@ public class Shop : MonoBehaviour
         playerData.coins -= item.price;
         playerData.cosmetics.Add(itemID);
 
+        playerData.equippedCosmetic = itemID;
+
         int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
         SaveSystem.SavePlayer(playerData, slot);
+
+        CosmeticManager cm = player.GetComponent<CosmeticManager>();
+        if (cm != null)
+        {
+            cm.ApplyCosmetic(itemID);
+        }
 
         PopulateShopItems();
     }

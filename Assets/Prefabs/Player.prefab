@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 494856397725356205}
   - component: {fileID: 9010772675344078363}
   - component: {fileID: 7172605553598256841}
+  - component: {fileID: 5878578434082430830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -351,6 +352,22 @@ MonoBehaviour:
   HUDPanel: {fileID: 0}
   playerInput: {fileID: 9010772675344078363}
   fade: {fileID: 0}
+--- !u!114 &5878578434082430830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632578521422994730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b21199be7e71be4e8f7774a4672957b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CosmeticManager
+  playerMesh: {fileID: 414670526813945395}
+  defaultMaterial: {fileID: 2100000, guid: ded5c498346135c4da014c30e9d8ff96, type: 2}
+  hatSlot: {fileID: 1787993254190609553}
+  availableCosmetics: []
 --- !u!1 &3751229700734522367
 GameObject:
   m_ObjectHideFlags: 0
