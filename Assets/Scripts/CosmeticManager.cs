@@ -6,6 +6,8 @@ public class CosmeticManager : MonoBehaviour
     public MeshRenderer playerMesh;
     public Material defaultMaterial;
     public Transform hatSlot;
+    public Transform leftShoeSlot;
+    public Transform rightShoeSlot;
 
     public List<ShopItem> availableCosmetics;
 
@@ -54,12 +56,27 @@ public class CosmeticManager : MonoBehaviour
                 case 3: // Shoes
                     if (currentShoes != null)
                         Destroy(currentShoes);
-                    currentShoes = Instantiate(cosmetic.itemPrefab, transform);
+                    currentShoes = Instantiate(cosmetic.itemPrefab, leftShoeSlot);
+                    Instantiate(cosmetic.itemPrefab, rightShoeSlot);
                     break;
                 default:
                     Debug.LogWarning("Unknown cosmetic type.");
                     break;
             }
+        }
+    }
+
+    public void EquipOwnedItem(int itemID)
+    {
+        int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
+        PlayerData data = SaveSystem.LoadPlayer(slot);
+
+        if (data.cosmetics.Contains(itemID))
+        {
+            data.equippedCosmetic = itemID;
+            SaveSystem.SavePlayer(data, slot);
+            
+            ApplyCosmetic(itemID);
         }
     }
 }
