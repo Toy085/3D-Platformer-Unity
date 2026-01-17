@@ -67,6 +67,9 @@ public class Shop : MonoBehaviour
     {
         shopOpen = true;
 
+        int slot = PlayerPrefs.GetInt("SelectedSlot", 1); 
+        playerData = SaveSystem.LoadPlayer(slot);
+
         shopUI.SetActive(true);
         PopulateShopItems();
         Time.timeScale = 0f;
@@ -109,7 +112,10 @@ public class Shop : MonoBehaviour
         playerData.coins -= item.price;
         playerData.cosmetics.Add(itemID);
 
-        SaveSystem.SavePlayer(playerData, 1);
+        int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
+        SaveSystem.SavePlayer(playerData, slot);
+
+        PopulateShopItems();
     }
 
     private void OnDrawGizmos()
