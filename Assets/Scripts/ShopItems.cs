@@ -9,4 +9,5 @@ public class ShopItem
     public string itemName;
     public int price;
     public GameObject itemPrefab;
+    public Sprite icon;
 }
