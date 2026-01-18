@@ -98,23 +98,30 @@ public class Shop : MonoBehaviour
     public void BuyItem(int itemID)
     {
         ShopItem item = itemDatabase.GetItemByID(itemID);
-        
+
         if (item == null) return;
 
-        if (item.type != 0) return;
+        CosmeticManager cm = player.GetComponent<CosmeticManager>();
+        int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
+        if (playerData.cosmetics.Contains(itemID))
+        {
+            playerData.equippedCosmetic = itemID;
+
+            SaveSystem.SavePlayer(playerData, slot);
+
+            cm.EquipOwnedItem(itemID);
+            return;
+        }
 
         if (playerData.coins < item.price) return;
-        if (playerData.cosmetics.Contains(itemID)) return;
 
         playerData.coins -= item.price;
         playerData.cosmetics.Add(itemID);
 
         playerData.equippedCosmetic = itemID;
 
-        int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
         SaveSystem.SavePlayer(playerData, slot);
-
-        CosmeticManager cm = player.GetComponent<CosmeticManager>();
+        
         if (cm != null)
         {
             cm.EquipOwnedItem(itemID);
