@@ -9,7 +9,7 @@ public class CosmeticManager : MonoBehaviour
     public Transform leftShoeSlot;
     public Transform rightShoeSlot;
 
-    public List<ShopItem> availableCosmetics;
+    public ShopItemDatabase itemDatabase;
 
     private GameObject currentHat;
     private Material currentMatSkin;
@@ -39,7 +39,7 @@ public class CosmeticManager : MonoBehaviour
 
     public void ApplyCosmetic(int cosmeticID)
     {
-        ShopItem cosmetic = availableCosmetics.Find(item => item.id == cosmeticID);
+        ShopItem cosmetic = itemDatabase.GetItemByID(cosmeticID);
         if (cosmetic != null)
         {
             switch (cosmetic.cosmeticType)

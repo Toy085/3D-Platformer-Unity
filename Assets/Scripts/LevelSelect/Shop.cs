@@ -12,7 +12,7 @@ public class Shop : MonoBehaviour
     public float interactDistance = 3f;
     public GameObject promptUI;
     
-    public List<ShopItem> itemsForSale;
+    public ShopItemDatabase itemDatabase;
 
     [Header("Prompt Sprites")]
     public Sprite keyboardSprite;
@@ -92,19 +92,13 @@ public class Shop : MonoBehaviour
 
     public void PopulateShopItems()
     {
-        if (shopUIHandler != null)
-        {
-            shopUIHandler.PopulateShop(itemsForSale, this, playerData);
-        }
-        else
-        {
-            Debug.LogError("ShopUI component not found on the shopUI GameObject!");
-        }
+        shopUIHandler?.PopulateShop(itemDatabase.allItems, this, playerData);
     }
 
     public void BuyItem(int itemID)
     {
-        ShopItem item = itemsForSale.Find(i => i.id == itemID);
+        ShopItem item = itemDatabase.GetItemByID(itemID);
+        
         if (item == null) return;
 
         if (item.type != 0) return;
