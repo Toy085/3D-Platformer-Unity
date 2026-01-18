@@ -1039,6 +1039,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414670526813945395, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 9479a736492a46646ac9ce7309c13156, type: 3}
     - target: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
       propertyPath: fadeGroup
       value: 
@@ -1845,6 +1849,10 @@ PrefabInstance:
     - target: {fileID: 3284936005369874213, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785374853167778528, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.7126465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

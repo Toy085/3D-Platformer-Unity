@@ -29,3 +29,11 @@ MonoBehaviour:
     itemPrefab: {fileID: 0}
     skinMaterial: {fileID: -876546973899608171, guid: 7247f509bab5bad4b8eb1c05ad207bbc, type: 3}
     icon: {fileID: 0}
+  - id: 2
+    type: 1
+    cosmeticType: 2
+    itemName: Red Aura
+    price: 100
+    itemPrefab: {fileID: 0}
+    skinMaterial: {fileID: -876546973899608171, guid: 7247f509bab5bad4b8eb1c05ad207bbc, type: 3}
+    icon: {fileID: 0}
