@@ -45,4 +45,9 @@ public class coin : MonoBehaviour
             Random.Range(0.8f, 1f)
         );
     }
+
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, magnetRadius);
+    }*/
 }
