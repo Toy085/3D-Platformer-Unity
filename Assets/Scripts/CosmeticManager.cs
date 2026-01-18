@@ -52,7 +52,7 @@ public class CosmeticManager : MonoBehaviour
                 case 2: // Mat Skin
                     if (playerMesh != null)
                     {
-                        currentMatSkin = cosmetic.itemPrefab.GetComponent<Renderer>().sharedMaterial;
+                        currentMatSkin = cosmetic.skinMaterial;
                         playerMesh.material = currentMatSkin;
                     }
                     break;
