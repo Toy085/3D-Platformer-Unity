@@ -103,13 +103,14 @@ public class Shop : MonoBehaviour
 
         CosmeticManager cm = player.GetComponent<CosmeticManager>();
         int slot = PlayerPrefs.GetInt("SelectedSlot", 1);
+
         if (playerData.cosmetics.Contains(itemID))
         {
             playerData.equippedCosmetic = itemID;
-
             SaveSystem.SavePlayer(playerData, slot);
-
             cm.EquipOwnedItem(itemID);
+
+            PopulateShopItems();
             return;
         }
 
@@ -122,10 +123,7 @@ public class Shop : MonoBehaviour
 
         SaveSystem.SavePlayer(playerData, slot);
         
-        if (cm != null)
-        {
-            cm.EquipOwnedItem(itemID);
-        }
+        cm?.EquipOwnedItem(itemID);
 
         PopulateShopItems();
     }

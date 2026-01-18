@@ -19,8 +19,9 @@ public class ShopUI : MonoBehaviour
             ShopItemUI uiScript = itemGO.GetComponent<ShopItemUI>();
 
             bool isOwned = playerData.cosmetics.Contains(item.id);
+            bool isEquipped = playerData.equippedCosmetic == item.id;
 
-            uiScript.Setup(item, shopScript, isOwned);
+            uiScript.Setup(item, shopScript, isOwned, isEquipped);
         }
     }
 }

@@ -13,7 +13,7 @@ public class ShopItemUI : MonoBehaviour
     private int _itemID;
     private Shop _shopReference;
 
-    public void Setup(ShopItem item, Shop shopScript, bool isOwned)
+    public void Setup(ShopItem item, Shop shopScript, bool isOwned, bool isEquipped)
     {
         if (item == null) return;
 
@@ -27,17 +27,22 @@ public class ShopItemUI : MonoBehaviour
             itemIcon.sprite = item.icon;
 
         buyButton.onClick.RemoveAllListeners();
+        buyButton.onClick.AddListener(OnBuyClick);
         
-        if (isOwned)
+        if (isEquipped)
         {
-            buyButtonText.text = "Owned";
+            buyButtonText.text = "Equipped";
             buyButton.interactable = false;
+        }
+        else if (isOwned)
+        {
+            buyButtonText.text = "Equip";
+            buyButton.interactable = true;
         }
         else
         {
             buyButtonText.text = "Buy";
             buyButton.interactable = true;
-            buyButton.onClick.AddListener(OnBuyClick);
         }
     }
 
