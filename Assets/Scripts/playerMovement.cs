@@ -266,6 +266,16 @@ public class playerMovement : MonoBehaviour
         knockbackTimer = knockbackDuration;
     }
 
+    public void AddHealth(int amount)
+    {
+        health += amount;
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+        healthBar.SetHealth(health);
+    }
+
     private void OnInteract(InputValue value)
     {
         Debug.Log("Interact button pressed!");
