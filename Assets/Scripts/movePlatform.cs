@@ -63,9 +63,11 @@ public class movePlatform : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
+        if (doDamage)
+            Gizmos.color = Color.red;
         Gizmos.DrawLine(startPos, endPos);
         Gizmos.DrawWireMesh(transform.GetComponent<MeshFilter>().sharedMesh, startPos, Quaternion.identity, transform.localScale);
         Gizmos.DrawWireMesh(transform.GetComponent<MeshFilter>().sharedMesh, endPos, Quaternion.identity, transform.localScale);
