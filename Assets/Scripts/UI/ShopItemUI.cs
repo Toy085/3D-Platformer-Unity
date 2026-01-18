@@ -32,11 +32,13 @@ public class ShopItemUI : MonoBehaviour
         if (isEquipped)
         {
             buyButtonText.text = "Equipped";
+            itemPriceText.text = "Owned";
             buyButton.interactable = false;
         }
         else if (isOwned)
         {
             buyButtonText.text = "Equip";
+            itemPriceText.text = "Owned";
             buyButton.interactable = true;
         }
         else
