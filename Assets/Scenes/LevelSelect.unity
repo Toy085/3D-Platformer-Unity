@@ -6668,7 +6668,7 @@ MonoBehaviour:
   hatSlot: {fileID: 1659308376}
   leftShoeSlot: {fileID: 0}
   rightShoeSlot: {fileID: 0}
-  availableCosmetics: []
+  itemDatabase: {fileID: 11400000, guid: bf7314ed6b4fe704180e291656d7174c, type: 2}
 --- !u!1 &1687653955
 GameObject:
   m_ObjectHideFlags: 0
@@ -7301,6 +7301,10 @@ PrefabInstance:
       propertyPath: shopUI
       value: 
       objectReference: {fileID: 675117973}
+    - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
+      propertyPath: itemDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: bf7314ed6b4fe704180e291656d7174c, type: 2}
     - target: {fileID: 959594949380956223, guid: 9fd6ceadbf86d084a9aed001cd73db76, type: 3}
       propertyPath: itemsForSale.Array.size
       value: 1

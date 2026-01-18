@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20fed61a10c3c941af35eca7b0c420b, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItemDatabase
+  allItems:
+  - id: 0
+    type: 1
+    cosmeticType: 1
+    itemName: Cap Hat
+    price: 75
+    itemPrefab: {fileID: 547001787343651416, guid: 06691021dafcb6c40b9e511150012837, type: 3}
+    icon: {fileID: 0}
