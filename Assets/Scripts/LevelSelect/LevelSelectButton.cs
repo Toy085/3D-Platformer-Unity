@@ -6,6 +6,7 @@ public class LevelSelectButton : MonoBehaviour
     public string levelSceneName;
     public int UnlockAfterLevel;
     public int saveSlot = 1;
+    public AudioClip levelMusic;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class LevelSelectButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            MusicManager.Instance?.PlayMusic(levelMusic);
             SceneManager.LoadScene(levelSceneName);
         }
     }

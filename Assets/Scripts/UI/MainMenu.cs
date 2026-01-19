@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject creditsPanel;
     public GameObject saveMenuPanel;
+    public AudioClip Music;
 
     private bool isCredits = false;
 
@@ -17,6 +18,8 @@ public class MainMenu : MonoBehaviour
 
         bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         Screen.fullScreen = isFullscreen;
+
+        MusicManager.Instance?.PlayMusic(Music);
     }
 
     public void OpenSaveMenu()
