@@ -1430,8 +1430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::movePlatform
   startPos: {x: -25, y: -2, z: 10}
   endPos: {x: 25, y: 0, z: 10}
-  speed: 4
-  waitTime: 0
+  speed: 6
+  waitTime: 1
   doDamage: 0
   isSaw: 0
   damageAmount: 20
