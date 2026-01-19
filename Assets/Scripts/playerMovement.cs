@@ -1,4 +1,3 @@
-using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,6 +43,8 @@ public class playerMovement : MonoBehaviour
     public CinemachineCamera freeLookCamera;
     public Animator animator;
     public int currentSaveSlot = 1;
+
+    [Header("SFX")]
     public AudioClip levelCompleteSound;
     public AudioClip deathSound;
     private void Start()
