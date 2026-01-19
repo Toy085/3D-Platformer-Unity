@@ -36,6 +36,7 @@ public class HUDUI : MonoBehaviour
         HUDPanel.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
+        MusicManager.Instance.PauseMusic();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -49,6 +50,7 @@ public class HUDUI : MonoBehaviour
         HUDPanel.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
+        MusicManager.Instance.ResumeMusic();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

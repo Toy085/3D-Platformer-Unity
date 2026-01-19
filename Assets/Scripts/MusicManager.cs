@@ -31,6 +31,15 @@ public class MusicManager : MonoBehaviour
         audioSource.Stop();
     }
 
+    public void PauseMusic()
+    {
+        audioSource.Pause();
+    }
+    public void ResumeMusic()
+    {
+        audioSource.UnPause();
+    }
+
     public void SetMusicVolume(float volume)
     {
         audioSource.volume = Mathf.Clamp01(volume);
