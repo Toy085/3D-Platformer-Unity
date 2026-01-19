@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
+
 
 public class Settings : MonoBehaviour
 {
@@ -8,9 +11,18 @@ public class Settings : MonoBehaviour
     public Slider volumeSlider;
     public Slider musicVolumeSlider;
     public Slider sensitivitySlider;
+    public TMP_Dropdown resolutionDropdown;
+    Resolution[] resolutions;
 
     void Start()
     {
+        PopulateResolutions();
+
+        int savedIndex = PlayerPrefs.GetInt("ResolutionIndex", GetCurrentResolutionIndex());
+        SetResolution(savedIndex);
+        resolutionDropdown.value = savedIndex;
+        resolutionDropdown.RefreshShownValue();
+
         AudioListener.volume = PlayerPrefs.GetFloat("Volume", 1f);
         volumeSlider.value = AudioListener.volume;
 
@@ -57,5 +69,50 @@ public class Settings : MonoBehaviour
     {
         MusicManager.Instance?.SetMusicVolume(value);
         PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    void PopulateResolutions()
+    {
+        Resolution[] allResolutions = Screen.resolutions;
+        List<Resolution> filtered = new List<Resolution>();
+        List<string> options = new List<string>();
+
+        foreach (Resolution res in allResolutions)
+        {
+            if (!filtered.Exists(r => r.width == res.width && r.height == res.height))
+            {
+                filtered.Add(res);
+                options.Add($"{res.width} x {res.height}");
+            }
+        }
+
+        resolutions = filtered.ToArray();
+
+        resolutionDropdown.ClearOptions();
+        resolutionDropdown.AddOptions(options);
+    }
+    public void SetResolution(int index)
+    {
+        Resolution res = resolutions[index];
+
+        FullScreenMode mode = Screen.fullScreen
+            ? FullScreenMode.FullScreenWindow
+            : FullScreenMode.Windowed;
+
+        Screen.SetResolution(res.width, res.height, mode, res.refreshRateRatio);
+        PlayerPrefs.SetInt("ResolutionIndex", index);
+    }
+
+    int GetCurrentResolutionIndex()
+    {
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            if (resolutions[i].width == Screen.width &&
+                resolutions[i].height == Screen.height)
+            {
+                return i;
+            }
+        }
+        return 0;
     }
 }
