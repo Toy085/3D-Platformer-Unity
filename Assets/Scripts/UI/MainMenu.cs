@@ -6,7 +6,10 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
+    public GameObject creditsPanel;
     public GameObject saveMenuPanel;
+
+    private bool isCredits = false;
 
     void Start()
     {
@@ -15,6 +18,7 @@ public class MainMenu : MonoBehaviour
         bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         Screen.fullScreen = isFullscreen;
     }
+
     public void OpenSaveMenu()
     {
         mainMenuPanel.SetActive(false);
@@ -25,6 +29,20 @@ public class MainMenu : MonoBehaviour
         saveMenuPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
+
+    public void Credits()
+    {
+        if (!isCredits)
+        {
+            creditsPanel.SetActive(true);
+            isCredits = true;
+        } else
+        {
+            creditsPanel.SetActive(false);
+            isCredits = false;
+        }
+    }
+    
     public void QuitGame()
     {
         Application.Quit();
