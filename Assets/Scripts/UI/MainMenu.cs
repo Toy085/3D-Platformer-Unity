@@ -15,6 +15,8 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         AudioListener.volume = PlayerPrefs.GetFloat("Volume", 1f);
+        float MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        MusicManager.Instance?.SetMusicVolume(MusicVolume);
 
         bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         Screen.fullScreen = isFullscreen;
