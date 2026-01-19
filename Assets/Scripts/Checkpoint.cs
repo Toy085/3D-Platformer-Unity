@@ -3,6 +3,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public ParticleSystem activateEffect;
+    public AudioClip checkpointSound;
 
     private bool activated = false;
 
@@ -11,9 +12,11 @@ public class Checkpoint : MonoBehaviour
         if (activated) return;
         activated = true;
 
-        if (activateEffect != null)
-        {
-            activateEffect.Play();
-        }
+        activateEffect?.Play();
+        AudioSource.PlayClipAtPoint(
+            checkpointSound,
+            transform.position,
+            Random.Range(0.8f, 1f)
+        );
     }
 }

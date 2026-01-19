@@ -1,4 +1,4 @@
-using System;
+//using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,6 +44,7 @@ public class playerMovement : MonoBehaviour
     public CinemachineCamera freeLookCamera;
     public Animator animator;
     public int currentSaveSlot = 1;
+    public AudioClip levelCompleteSound;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -195,12 +196,13 @@ public class playerMovement : MonoBehaviour
             SaveGame(currentSaveSlot);
 
             Checkpoint checkpoint = other.GetComponent<Checkpoint>();
-            if (checkpoint != null)
-            {
-                checkpoint.Activate();
-            }
+            checkpoint?.Activate();
         } else if (other.CompareTag("Finish"))
         {
+            if (levelCompleteSound != null)
+            {
+                AudioSource.PlayClipAtPoint(levelCompleteSound, transform.position, Random.Range(0.8f, 1f));
+            }
             PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
             data.playerPosition = Vector3.zero;
             data.checkpointSceneIndex = -1;
