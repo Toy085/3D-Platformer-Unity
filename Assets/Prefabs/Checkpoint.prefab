@@ -5163,3 +5163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
   activateEffect: {fileID: 2909509587569729597}
+  checkpointSound: {fileID: 8300000, guid: 3406f5da03c3c9c49869722c001fe29c, type: 3}

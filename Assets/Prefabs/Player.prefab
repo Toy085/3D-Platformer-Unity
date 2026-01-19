@@ -305,6 +305,8 @@ MonoBehaviour:
   freeLookCamera: {fileID: 0}
   animator: {fileID: 1220655231796809943}
   currentSaveSlot: 1
+  levelCompleteSound: {fileID: 8300000, guid: a46961e43e065c34d88ba5f5376d2dd7, type: 3}
+  deathSound: {fileID: 8300000, guid: 09acc66831fb87442ae71ac7bf496d40, type: 3}
 --- !u!114 &9010772675344078363
 MonoBehaviour:
   m_ObjectHideFlags: 0

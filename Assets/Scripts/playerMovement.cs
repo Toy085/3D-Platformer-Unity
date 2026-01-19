@@ -1,4 +1,4 @@
-//using System;
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -45,6 +45,7 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
     public int currentSaveSlot = 1;
     public AudioClip levelCompleteSound;
+    public AudioClip deathSound;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -201,7 +202,7 @@ public class playerMovement : MonoBehaviour
         {
             if (levelCompleteSound != null)
             {
-                AudioSource.PlayClipAtPoint(levelCompleteSound, transform.position, Random.Range(0.8f, 1f));
+                AudioSource.PlayClipAtPoint(levelCompleteSound, transform.position, 1f);
             }
             PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
             data.playerPosition = Vector3.zero;
@@ -252,6 +253,10 @@ public class playerMovement : MonoBehaviour
         healthBar.SetHealth(health);
         if (health <= 0)
         {
+            if (deathSound != null)
+            {
+                AudioSource.PlayClipAtPoint(deathSound, transform.position, 1f);
+            }
             StartCoroutine(Respawn());
         }
     }
