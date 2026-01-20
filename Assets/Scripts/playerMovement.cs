@@ -210,7 +210,7 @@ public class playerMovement : MonoBehaviour
             data.checkpointSceneIndex = -1;
 
             SaveGame(currentSaveSlot);
-            SceneManager.LoadScene("LevelSelect");
+            SceneTransition.Instance.TransitionToScene("LevelSelect");
         }
     }
 

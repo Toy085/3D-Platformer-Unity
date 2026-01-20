@@ -36,13 +36,13 @@ public class SaveMenu : MonoBehaviour
         if (SaveSystem.SaveExists(slot))
         {
             PlayerPrefs.SetInt("SelectedSlot", slot);
-            SceneManager.LoadScene("LevelSelect");
+            SceneTransition.Instance.TransitionToScene("LevelSelect");
         }
         else
         {
             PlayerPrefs.SetInt("SelectedSlot", slot);
             SaveSystem.DeleteSave(slot);
-            SceneManager.LoadScene("LevelSelect");
+            SceneTransition.Instance.TransitionToScene("LevelSelect");
         }
     }
 

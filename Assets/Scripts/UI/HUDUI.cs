@@ -70,6 +70,6 @@ public class HUDUI : MonoBehaviour
     public void ExitLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LevelSelect");
+        SceneTransition.Instance.TransitionToScene("LevelSelect");
     }
 }

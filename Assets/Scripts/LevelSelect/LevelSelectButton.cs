@@ -24,7 +24,7 @@ public class LevelSelectButton : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             MusicManager.Instance?.PlayMusic(levelMusic);
-            SceneManager.LoadScene(levelSceneName);
+            SceneTransition.Instance.TransitionToScene(levelSceneName);
         }
     }
 }
