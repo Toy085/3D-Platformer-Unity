@@ -82,7 +82,8 @@ public class Settings : MonoBehaviour
             if (!filtered.Exists(r => r.width == res.width && r.height == res.height))
             {
                 filtered.Add(res);
-                options.Add($"{res.width} x {res.height}");
+                string optionRes = res.width + " x " + res.height + " @ " + Mathf.Round((float)res.refreshRateRatio.value) + "Hz";
+                options.Add(optionRes);
             }
         }
 
