@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 
 public class HUDUI : MonoBehaviour
 {
+    [Header("Text")]
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI timerText;
 
+    [Header("Misc")]
     public GameObject pausePanel;
     public GameObject HUDPanel;
     private bool isPaused = false;

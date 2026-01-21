@@ -28,7 +28,7 @@ MonoBehaviour:
     price: 100
     itemPrefab: {fileID: 0}
     skinMaterial: {fileID: -876546973899608171, guid: 7247f509bab5bad4b8eb1c05ad207bbc, type: 3}
-    icon: {fileID: -1157862037, guid: f6c5e06742e430d40a9d32c1adebe3dc, type: 3}
+    icon: {fileID: -1450322210, guid: 9c563849ac000fe44bb2890a4c001534, type: 3}
   - id: 2
     type: 1
     cosmeticType: 2
@@ -36,4 +36,4 @@ MonoBehaviour:
     price: 100
     itemPrefab: {fileID: 0}
     skinMaterial: {fileID: -876546973899608171, guid: 9479a736492a46646ac9ce7309c13156, type: 3}
-    icon: {fileID: -1450322210, guid: 9c563849ac000fe44bb2890a4c001534, type: 3}
+    icon: {fileID: -1157862037, guid: f6c5e06742e430d40a9d32c1adebe3dc, type: 3}

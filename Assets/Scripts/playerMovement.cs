@@ -201,16 +201,15 @@ public class playerMovement : MonoBehaviour
             checkpoint?.Activate();
         } else if (other.CompareTag("Finish"))
         {
+            SpeedrunTimer timer = FindFirstObjectByType<SpeedrunTimer>();
+            if (timer != null) timer.StopTimer();
+
             if (levelCompleteSound != null)
             {
                 AudioSource.PlayClipAtPoint(levelCompleteSound, transform.position, PlayerPrefs.GetFloat("SFXVolume", 1f));
             }
-            PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
-            data.playerPosition = Vector3.zero;
-            data.checkpointSceneIndex = -1;
 
-            SaveGame(currentSaveSlot);
-            SceneTransition.Instance.TransitionToScene("LevelSelect");
+            StartCoroutine(LevelCompleteSequence());
         }
     }
 
@@ -301,7 +300,34 @@ public class playerMovement : MonoBehaviour
         }
     }
 
+    IEnumerator LevelCompleteSequence()
+    {
+        controller.enabled = false;
 
+        float finalTime = 0f;
+        SpeedrunTimer timer = FindFirstObjectByType<SpeedrunTimer>();
+        if (timer != null)
+        {
+            finalTime = timer.GetFinalTime();
+            timer.StopTimer();
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
+        data.playerPosition = Vector3.zero;
+        data.checkpointSceneIndex = -1;
+        data.coins = coins;
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        data.levelsCompleted = Mathf.Max(data.levelsCompleted, currentSceneIndex);
+
+        string currentLevelName = SceneManager.GetActiveScene().name;
+        data.UpdateBestTime(currentLevelName, finalTime);
+
+        SaveSystem.SavePlayer(data, currentSaveSlot);
+        SceneTransition.Instance.TransitionToScene("LevelSelect");
+    }
     IEnumerator Respawn()
     {
         yield return StartCoroutine(Fade(1));

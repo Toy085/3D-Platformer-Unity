@@ -263,6 +263,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &103195750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7337701439531133573, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+  m_PrefabInstance: {fileID: 103195746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &129964521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2331,6 +2342,10 @@ PrefabInstance:
       propertyPath: coinText
       value: 
       objectReference: {fileID: 103195749}
+    - target: {fileID: 7172605553598256841, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 103195750}
     - target: {fileID: 7172605553598256841, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
       propertyPath: pausePanel
       value: 
