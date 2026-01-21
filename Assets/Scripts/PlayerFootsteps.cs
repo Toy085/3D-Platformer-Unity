@@ -23,7 +23,7 @@ public class PlayerFootsteps : MonoBehaviour
         {
             AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
             
-            audioSource.pitch = Random.Range(0.8f, 1.1f);
+            audioSource.pitch = Random.Range(0.8f, 1.1f) * PlayerPrefs.GetFloat("SFXVolume", 1f);
             audioSource.PlayOneShot(clip);
         }
     }

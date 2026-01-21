@@ -203,7 +203,7 @@ public class playerMovement : MonoBehaviour
         {
             if (levelCompleteSound != null)
             {
-                AudioSource.PlayClipAtPoint(levelCompleteSound, transform.position, 1f);
+                AudioSource.PlayClipAtPoint(levelCompleteSound, transform.position, PlayerPrefs.GetFloat("SFXVolume", 1f));
             }
             PlayerData data = SaveSystem.LoadPlayer(currentSaveSlot);
             data.playerPosition = Vector3.zero;
@@ -256,7 +256,7 @@ public class playerMovement : MonoBehaviour
         {
             if (deathSound != null)
             {
-                AudioSource.PlayClipAtPoint(deathSound, transform.position, 1f);
+                AudioSource.PlayClipAtPoint(deathSound, transform.position, PlayerPrefs.GetFloat("SFXVolume", 1f));
             }
             StartCoroutine(Respawn());
         }

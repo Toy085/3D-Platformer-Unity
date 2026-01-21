@@ -39,10 +39,11 @@ public class coin : MonoBehaviour
     public void Collect()
     {
         Instantiate(pickupFX, transform.position, Quaternion.identity);
+        float volume = Random.Range(0.8f, 1f) * PlayerPrefs.GetFloat("SFXVolume", 1f);
         AudioSource.PlayClipAtPoint(
             pickupSound,
             transform.position,
-            Random.Range(0.8f, 1f)
+            volume
         );
     }
 

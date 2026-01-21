@@ -10,6 +10,7 @@ public class Settings : MonoBehaviour
     public Toggle fullscreenToggle;
     public Slider volumeSlider;
     public Slider musicVolumeSlider;
+    public Slider sfxVolumeSlider;
     public Slider sensitivitySlider;
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
@@ -29,6 +30,9 @@ public class Settings : MonoBehaviour
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         musicVolumeSlider.value = musicVolume;
         MusicManager.Instance?.SetMusicVolume(musicVolume);
+
+        float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        sfxVolumeSlider.value = sfxVolume;
 
         bool isFullscreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         Screen.fullScreen = isFullscreen;
@@ -69,6 +73,10 @@ public class Settings : MonoBehaviour
     {
         MusicManager.Instance?.SetMusicVolume(value);
         PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+    public void SetSFXVolume(float value)
+    {
+        PlayerPrefs.SetFloat("SFXVolume", value);
     }
 
     void PopulateResolutions()
