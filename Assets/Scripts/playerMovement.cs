@@ -222,7 +222,7 @@ public class playerMovement : MonoBehaviour
         data.coins = coins;
 
         data.playerPosition = lastCheckpointPos;
-        data.checkpointSceneIndex = sceneIndex;
+        //data.checkpointSceneIndex = sceneIndex;
 
         SaveSystem.SavePlayer(data, slot);
     }
