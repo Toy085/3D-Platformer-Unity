@@ -110,11 +110,17 @@ public class Shop : MonoBehaviour
             SaveSystem.SavePlayer(playerData, slot);
             cm.EquipOwnedItem(itemID);
 
+            NotificationManager.Instance.ShowMessage(item.itemName + " Equipped!");
+
             PopulateShopItems();
             return;
         }
 
-        if (playerData.coins < item.price) return;
+        if (playerData.coins < item.price)
+        {
+            NotificationManager.Instance?.ShowMessage("Not Enough Coins!");
+            return;
+        }
 
         playerData.coins -= item.price;
         playerData.cosmetics.Add(itemID);
@@ -124,6 +130,8 @@ public class Shop : MonoBehaviour
         SaveSystem.SavePlayer(playerData, slot);
         
         cm?.EquipOwnedItem(itemID);
+
+        NotificationManager.Instance.ShowMessage("Purchased " + item.itemName + "!");
 
         PopulateShopItems();
     }
