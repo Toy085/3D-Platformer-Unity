@@ -285,7 +285,6 @@ public class playerMovement : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
-        Debug.Log("Interact button pressed!");
         Shop[] shops = FindObjectsByType<Shop>(FindObjectsSortMode.None);
     
         foreach (Shop shop in shops)
