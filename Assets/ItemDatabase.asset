@@ -44,4 +44,4 @@ MonoBehaviour:
     price: 125
     itemPrefab: {fileID: 0}
     skinMaterial: {fileID: 2100000, guid: b9c623e5bbf9750449b621f656ab502e, type: 2}
-    icon: {fileID: 0}
+    icon: {fileID: -869605094, guid: 6d7888c8e55885841af161b83876422f, type: 3}
