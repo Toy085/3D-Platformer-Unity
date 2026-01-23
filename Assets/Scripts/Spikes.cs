@@ -52,4 +52,15 @@ public class Spikes : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (spikesUp)
+            {
+                playerMovement player = other.GetComponent<playerMovement>();
+                player?.ApplyKnockback(transform.position);
+            }
+        }
+    }
 }
