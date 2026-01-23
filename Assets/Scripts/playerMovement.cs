@@ -77,7 +77,7 @@ public class playerMovement : MonoBehaviour
     private void OnJump(InputValue value)
     {
         jumpPressed = value.isPressed;
-        
+
         if (jumpPressed)
             StartSpeedrunTimer();
     }
@@ -118,7 +118,8 @@ public class playerMovement : MonoBehaviour
 
         if (knockbackTimer > 0)
         {
-            controller.Move(knockbackVelocity * Time.deltaTime);
+            if (controller.enabled)
+                controller.Move(knockbackVelocity * Time.deltaTime);
 
             knockbackVelocity.y = Mathf.Lerp(knockbackVelocity.y, 0, 15f * Time.deltaTime);
 
@@ -145,7 +146,8 @@ public class playerMovement : MonoBehaviour
                 }
             }
 
-            controller.Move(playerIntent + platformMovement);
+            if (controller.enabled)
+                controller.Move(playerIntent + platformMovement);
 
             // Jump logic
             if (jumpPressed && coyoteTimeCounter > 0f)
@@ -158,9 +160,7 @@ public class playerMovement : MonoBehaviour
 
             playerVelocity.y += gravity * Time.deltaTime;
             if (controller.enabled)
-            {
                 controller.Move(playerVelocity * Time.deltaTime);
-            }
         }
 
 
