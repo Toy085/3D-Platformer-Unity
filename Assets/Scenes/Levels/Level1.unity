@@ -237,6 +237,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7711527720272906410, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1707837396}
+    - target: {fileID: 7711527720272906410, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711527720272906410, guid: a4a67fd365f47b34fb840e360d126cdf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: playerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2360,6 +2372,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3378350617038904610, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
   m_PrefabInstance: {fileID: 1707837394}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1707837396 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 494856397725356205, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}
+  m_PrefabInstance: {fileID: 1707837394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f409d35b6e9ffc43a2c2e856473c1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerMovement
 --- !u!114 &1707837400 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7172605553598256841, guid: 7e5c244eaf8975648bd0d7d594db8060, type: 3}

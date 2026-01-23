@@ -81,6 +81,10 @@ public class playerMovement : MonoBehaviour
         if (jumpPressed)
             StartSpeedrunTimer();
     }
+    private void OnRestart()
+    {
+        RestartLevel();
+    }
 
     // Update is called once per frame
     void Update()
@@ -323,6 +327,12 @@ public class playerMovement : MonoBehaviour
             timer.StartTimer();
             hasStartedMoving = true;
         }
+    }
+
+    public void RestartLevel()
+    {
+        hasStartedMoving = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     IEnumerator LevelCompleteSequence()
