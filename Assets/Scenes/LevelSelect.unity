@@ -2398,7 +2398,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: dd6b38fab2083cc4b878bf7f4016c576, type: 3}
     - target: {fileID: 4230173979333862163, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
       propertyPath: levelSceneName
-      value: Level8
+      value: Level10
       objectReference: {fileID: 0}
     - target: {fileID: 4230173979333862163, guid: 041be7a1577313d42a346a8ceb28ac59, type: 3}
       propertyPath: UnlockAfterLevel
