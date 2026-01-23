@@ -9,7 +9,7 @@ public class SpeedrunTimer : MonoBehaviour
 
     private void Start()
     {
-        isRunning = true;
+        isRunning = false;
         elapsedTime = 0f;
     }
 
@@ -20,6 +20,12 @@ public class SpeedrunTimer : MonoBehaviour
             elapsedTime += Time.deltaTime;
             UpdateTimerUI();
         }
+    }
+
+    public void StartTimer()
+    {
+        isRunning = true;
+        elapsedTime = 0f;
     }
 
     public void StopTimer()

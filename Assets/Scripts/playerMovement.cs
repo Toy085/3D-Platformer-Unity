@@ -16,6 +16,8 @@ public class playerMovement : MonoBehaviour
     private int coins = 0;
     private float knockbackTimer;
     private Vector3 knockbackVelocity = Vector3.zero;
+    private SpeedrunTimer timer;
+    private bool hasStartedMoving;
 
 
     [Header("Movement Modifiers")]
@@ -63,14 +65,21 @@ public class playerMovement : MonoBehaviour
         hudUI.SetCoinUI(coins);
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        timer = FindFirstObjectByType<SpeedrunTimer>();
     }
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+
+        if (moveInput.magnitude > 0.01f)
+            StartSpeedrunTimer();
     }
     private void OnJump(InputValue value)
     {
         jumpPressed = value.isPressed;
+        
+        if (jumpPressed)
+            StartSpeedrunTimer();
     }
 
     // Update is called once per frame
@@ -127,8 +136,7 @@ public class playerMovement : MonoBehaviour
             Vector3 playerIntent = move * Time.deltaTime * appliedSpeed;
 
             Vector3 platformMovement = Vector3.zero;
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f)) 
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.5f))
             {
                 movePlatform platform = hit.collider.GetComponent<movePlatform>();
                 if (platform != null)
@@ -308,12 +316,20 @@ public class playerMovement : MonoBehaviour
         animator?.SetBool("IsJumping", true);
     }
 
+    private void StartSpeedrunTimer()
+    {
+        if (timer != null && !hasStartedMoving)
+        {
+            timer.StartTimer();
+            hasStartedMoving = true;
+        }
+    }
+
     IEnumerator LevelCompleteSequence()
     {
         controller.enabled = false;
 
         float finalTime = 0f;
-        SpeedrunTimer timer = FindFirstObjectByType<SpeedrunTimer>();
         if (timer != null)
         {
             finalTime = timer.GetFinalTime();
