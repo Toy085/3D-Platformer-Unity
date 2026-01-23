@@ -299,6 +299,15 @@ public class playerMovement : MonoBehaviour
         }
     }
 
+    public void Launch(float force)
+    {
+        playerVelocity.y = 0; 
+    
+        playerVelocity.y = force;
+    
+        animator?.SetBool("IsJumping", true);
+    }
+
     IEnumerator LevelCompleteSequence()
     {
         controller.enabled = false;
