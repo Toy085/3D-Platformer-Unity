@@ -1034,8 +1034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae1832c476c014d99f04a5e2bc4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movePlatform
-  startPos: {x: 0, y: -2.6, z: 10}
-  endPos: {x: 0, y: 5, z: 10}
+  startPos: {x: 0, y: 5, z: 10}
+  endPos: {x: 0, y: -2.6, z: 10}
   speed: 3
   waitTime: 2
   doDamage: 0
