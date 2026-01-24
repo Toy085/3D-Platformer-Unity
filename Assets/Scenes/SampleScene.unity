@@ -475,9 +475,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae1832c476c014d99f04a5e2bc4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movePlatform
-  maxY: 5
-  minY: -1
+  startPos: {x: 0, y: 0, z: 22}
+  endPos: {x: 0, y: 10, z: 22}
   speed: 2
+  waitTime: 2
+  doDamage: 0
+  isSaw: 0
+  damageAmount: 20
 --- !u!65 &796891306
 BoxCollider:
   m_ObjectHideFlags: 0
