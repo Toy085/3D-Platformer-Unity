@@ -1962,7 +1962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7678102523af9814bb8801d9323ea228, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96db4bdfac9a86b4cb9a7fc91f286746, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4261,14 +4261,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1165001163152325198, guid: 6b7a74e79c37f4d468c86099fa76b9b2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 96db4bdfac9a86b4cb9a7fc91f286746, type: 3}
-    - target: {fileID: 4620509898002531342, guid: 6b7a74e79c37f4d468c86099fa76b9b2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7678102523af9814bb8801d9323ea228, type: 3}
     - target: {fileID: 5984713115387138599, guid: 6b7a74e79c37f4d468c86099fa76b9b2, type: 3}
       propertyPath: m_Name
       value: Save Slot
