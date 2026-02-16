@@ -16,6 +16,8 @@ public class HUDUI : MonoBehaviour
     public PlayerInput playerInput;
     public GameObject fade;
 
+    public bool isSettingsOpen = false;
+
     public void SetCoinUI(int amount)
     {
         coinText.text = "Coins: " + amount.ToString();
@@ -25,7 +27,7 @@ public class HUDUI : MonoBehaviour
     {
         if (!value.isPressed) return;
 
-        if (isPaused)
+        if (isPaused && !isSettingsOpen)
             Resume();
         else
             Pause();

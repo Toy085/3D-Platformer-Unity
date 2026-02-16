@@ -15,8 +15,11 @@ public class Settings : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
 
+    private HUDUI hudUI;
+
     void Start()
     {
+        hudUI = FindFirstObjectByType<HUDUI>();
         PopulateResolutions();
 
         int savedIndex = PlayerPrefs.GetInt("ResolutionIndex", GetCurrentResolutionIndex());
@@ -49,10 +52,12 @@ public class Settings : MonoBehaviour
     public void OpenSettings()
     {
         settingsPanel.SetActive(true);
+        if(hudUI != null) hudUI.isSettingsOpen = true;
     }
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+        if(hudUI != null) hudUI.isSettingsOpen = false;
     }
 
     public void SetVolume(float value)
