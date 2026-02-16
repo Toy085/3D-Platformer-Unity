@@ -1,10 +1,7 @@
 # Yet Another 3D Platformer
 
-A 3D platformer made in Unity
+Yet Another 3D Platformer is (like the name says) a 3D platformer made in Unity.
 
 ### Download
 
-
-
-### Build
-
+https://toy085.itch.io/ya3dp
