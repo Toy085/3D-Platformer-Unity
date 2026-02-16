@@ -14,7 +14,6 @@ public class LevelSelectButton : MonoBehaviour
 
     void Start()
     {
-        if (isTeleport) return;
         saveSlot = PlayerPrefs.GetInt("SelectedSlot", 1);
         PlayerData data = SaveSystem.LoadPlayer(saveSlot);
         int levelsCompleted = data.levelsCompleted;
@@ -22,6 +21,7 @@ public class LevelSelectButton : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        if (isTeleport) return;
 
         if (bestTimeText != null)
         {
