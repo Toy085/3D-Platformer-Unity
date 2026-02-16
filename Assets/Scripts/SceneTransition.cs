@@ -29,6 +29,11 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(LoadSceneCoroutine(sceneName));
     }
 
+    public void Transition(float targetAlpha)
+    {
+        StartCoroutine(Fade(targetAlpha));
+    }
+
     private IEnumerator LoadSceneCoroutine(string sceneName)
     {
         yield return StartCoroutine(Fade(1));

@@ -9,9 +9,12 @@ public class LevelSelectButton : MonoBehaviour
     public int saveSlot = 1;
     public AudioClip levelMusic;
     public TMP_Text bestTimeText;
+    public bool isTeleport = false;
+    public Vector3 teleportTarget;
 
     void Start()
     {
+        if (isTeleport) return;
         saveSlot = PlayerPrefs.GetInt("SelectedSlot", 1);
         PlayerData data = SaveSystem.LoadPlayer(saveSlot);
         int levelsCompleted = data.levelsCompleted;
@@ -42,8 +45,23 @@ public class LevelSelectButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            MusicManager.Instance?.PlayMusic(levelMusic);
-            SceneTransition.Instance.TransitionToScene(levelSceneName);
+            if (isTeleport)
+            {
+                other.transform.position = teleportTarget;
+            } else {
+                MusicManager.Instance?.PlayMusic(levelMusic);
+                SceneTransition.Instance.TransitionToScene(levelSceneName);
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (isTeleport)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(transform.position, teleportTarget);
+            Gizmos.DrawSphere(teleportTarget, 0.5f);
         }
     }
 }
